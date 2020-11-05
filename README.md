@@ -27,7 +27,7 @@ Alongside trying out some stac pieces this is also a first attempt at using [nbd
 
 There are some basic utilities for working with the sedas api, converting rasters to COG format and dealing with S3-like storage.
 
-```python
+```
 get_sedas_collections()
 ```
 
