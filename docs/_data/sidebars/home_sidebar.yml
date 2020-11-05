@@ -10,8 +10,11 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Core Utils
+      title: Basic Utils
       url: /utils
+    - output: web,pdf
+      title: Pleiades Example
+      url: /pleiades
     output: web
     title: sac_stac
   output: web

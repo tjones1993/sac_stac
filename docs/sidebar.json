@@ -1,6 +1,7 @@
 {
   "sac_stac": {
     "Overview": "/",
-    "Core Utils": "/utils"
+    "Basic Utils": "/utils",
+    "Pleiades Example": "/pleiades"
   }
 }
