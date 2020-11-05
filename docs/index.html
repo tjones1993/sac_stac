@@ -1,6 +1,6 @@
 ---
 
-title: My super cool project name
+title: A super cool project name
 
 keywords: fastai
 sidebar: home_sidebar
@@ -30,7 +30,14 @@ nb_path: "index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This file will become your README and also the index of your documentation.</p>
+<p>Catapult hosts a variety of satellite Earth Observation (EO) datasets that it's expected would have far more use due to improved <strong>discoverability</strong>, <strong>searchability</strong> and <strong>accessibility</strong> if they were...</p>
+<ol>
+<li>hosted on publicly accessible object storage</li>
+<li>formatted to be cloud-optimised</li>
+<li>consistently catalogued </li>
+</ol>
+<p>Here we do some exploratory work in using Catapult's internal <strong><a href="https://en.wikipedia.org/wiki/Object_storage">object storage</a></strong>, Cloud Optimised Geotiffs (<strong><a href="https://www.cogeo.org/">COGs</a></strong>) and SpatioTemporal Asset Catalogs (<strong><a href="https://stacspec.org/">STAC</a></strong>) to address each of these components for a selection of Catapult-hosted and publicly available EO datasets.</p>
+<p>The initial exploration covers a variety of very high resolution images procured from commercial providers with flexible license agreements for <a href="https://www.gov.uk/government/news/free-satellite-data-available-to-help-tackle-public-sector-challenges">pubic-sector use cases</a> and a nascent flavour of Analysis Reaady Data (<strong><a href="http://ceos.org/ard/">ARD</a></strong>) for <a href="https://sa.catapult.org.uk/facilities/novasar-1/">NovaSAR</a>.</p>
 
 </div>
 </div>
@@ -43,20 +50,33 @@ nb_path: "index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install your_project_name</code></p>
+<p><code>pip install sac_stac</code> (package not created yet)</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
+<h2 id="Dev">Dev<a class="anchor-link" href="#Dev"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Fill me in please! Don't forget code examples:</p>
+<p>Alongside trying out some stac pieces this is also a first attempt at using nbdev. The setup for development is simply based around a Docker container serving a Jupyter Lab environment. Folding package requirements within settings.ini is the next step for making use of...</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="So-far...">So far...<a class="anchor-link" href="#So-far..."> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are some basic utilities for working with the sedas api, converting rasters to COG format and dealing with S3-like storage.</p>
 
 </div>
 </div>
@@ -68,7 +88,7 @@ nb_path: "index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_sedas_collections</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -83,7 +103,7 @@ nb_path: "index.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
+<pre>&#39;Available groups are: Cosmo-SkyMed, SPOT, Pleiades, S1, S2, AIRSAR&#39;</pre>
 </div>
 
 </div>
@@ -96,44 +116,17 @@ nb_path: "index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another example!</p>
+<p>And these are built up to be used across dataset specific characteristics. Basically addressing different dir structures, mosaic and band stacking requirements, etc. For example with Pleiades...</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Tom Jones!&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="There-soon-will-be...">There soon will be...<a class="anchor-link" href="#There-soon-will-be..."> </a></h2>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Hello Tom Jones!!&#39;</pre>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 </div>
  
 

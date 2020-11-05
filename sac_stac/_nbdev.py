@@ -2,9 +2,17 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"say_hello": "00_core.ipynb"}
+index = {"sedas_client": "00_utils.ipynb",
+         "get_sedas_collections": "00_utils.ipynb",
+         "s3_create_client": "00_utils.ipynb",
+         "gb": "00_utils.ipynb",
+         "s3_single_upload": "00_utils.ipynb",
+         "get_rel_dir_s3_paths": "00_utils.ipynb",
+         "s3_upload_dir": "00_utils.ipynb",
+         "s3_list_objects_paths": "00_utils.ipynb",
+         "s3_list_objects": "00_utils.ipynb"}
 
-modules = ["core.py"]
+modules = ["utils.py"]
 
 doc_url = "https://tjones1993.github.io/sac_stac/"
 

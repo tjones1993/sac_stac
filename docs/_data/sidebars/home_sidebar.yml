@@ -10,8 +10,8 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: mod_1
-      url: /core
+      title: Core Utils
+      url: /utils
     output: web
     title: sac_stac
   output: web

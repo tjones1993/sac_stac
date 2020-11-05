@@ -1,6 +1,6 @@
 {
   "sac_stac": {
     "Overview": "/",
-    "mod_1": "/core"
+    "Core Utils": "/utils"
   }
 }

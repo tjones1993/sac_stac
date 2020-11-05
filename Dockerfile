@@ -10,13 +10,22 @@ RUN conda update conda --quiet --yes \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
 RUN conda install --quiet --yes \
+	-c conda-forge \
+	gdal==3.1.4 \
+    boto3 \
+    pyyaml \
+    rasterio \
     pip \
     && conda clean --all -f -y \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-RUN conda install --quiet --yes -c fastai nbdev
+RUN conda install --quiet --yes -c fastai nbdev \
+    && conda clean --all -f -y \
+    && find /opt/conda/ -follow -type f -name '*.a' -delete \
+    && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
+    && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
 RUN apt-get update --yes
 
@@ -27,7 +36,12 @@ RUN echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 # RUN source ~/.bashrc
 
 RUN pip install --no-cache-dir \
-    nbconvert==5.6.1
+    nbconvert==5.6.1 \
+	requests \
+	pystac[validation] \
+	shapely \
+	sedas_pyapi \
+	geopandas
 
 # ------------------------------------------
 
@@ -38,6 +52,11 @@ RUN conda install --quiet --yes \
     && find /opt/conda/ -follow -type f -name '*.a' -delete \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
+
+RUN conda install --quiet --yes -c conda-forge nodejs
+
+RUN jupyter labextension install @jupyterlab/toc
+RUN jupyter labextension install @aquirdturtle/collapsible_headings
 
 CMD jupyter lab \
     --allow-root \
