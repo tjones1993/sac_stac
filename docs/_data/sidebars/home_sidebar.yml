@@ -11,10 +11,10 @@ entries:
       url: /
     - output: web,pdf
       title: Basic Utils
-      url: utils.html
+      url: /utils
     - output: web,pdf
       title: Pleiades Example
-      url: pleiades.html
+      url: /pleiades
     output: web
     title: sac_stac
   output: web

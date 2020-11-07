@@ -2,7 +2,6 @@
 
 title: Pleiades Example
 
-
 keywords: fastai
 sidebar: home_sidebar
 
@@ -44,24 +43,6 @@ nb_path: "01_pleiades.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">os</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 </pre></div>
 
     </div>
@@ -360,7 +341,139 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Use-single-example">Use single example<a class="anchor-link" href="#Use-single-example"> </a></h2>
+<h2 id="Download,-cloud-optimise,-upload">Download, cloud-optimise, upload<a class="anchor-link" href="#Download,-cloud-optimise,-upload"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once downloaded, we can now use some basic gdal tools to mosaic any tiles into single images, convert to cog and upload to our object storage.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="prep_pleiades" class="doc_header"><code>prep_pleiades</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/pleiades.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>prep_pleiades</code>(<strong><code>inter_dir</code></strong>, <strong><code>sedas_scene_res</code></strong>, <strong><code>s3_bucket</code></strong>, <strong><code>s3_dir</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prep_pleiades</span><span class="p">(</span><span class="s2">&quot;/tmp/data/&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;products&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;public-eo-data&#39;</span><span class="p">,</span> <span class="s1">&#39;uksa-ssgp/pleiades/&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2020-11-07 15:32:39 Preparing Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712 within /tmp/data/
+2020-11-07 15:32:40 Downloading
+2020-11-07 15:54:21 Downloaded
+2020-11-07 15:54:21 Extracting /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712.zip
+2020-11-07 15:58:12 Extracted to /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/
+2020-11-07 15:58:12 Mosaicing band 1 imgs: /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/TPP1601069318/IMG_PHR1B_P_001/IMG_PHR1B_P_201810241117221_ORT_3614233101-001_R1C1.TIF
+2020-11-07 15:58:12 Mosaicd /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/TPP1601069318/IMG_PHR1B_P_001/IMG_PHR1B_P_201810241117221_ORT_3614233101_band1_mosaic.tif
+2020-11-07 15:58:12 Starting conversion: &lt;osgeo.gdal.Dataset; proxy of &lt;Swig Object of type &#39;GDALDatasetShadow *&#39; at 0x7fa3b0bca2a0&gt; &gt;.
+2020-11-07 15:59:43 Conversion complete: True.
+2020-11-07 15:59:43 Starting conversion: /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101-002_R1C1.TIF.
+2020-11-07 15:59:51 Conversion complete: True.
+2020-11-07 15:59:51 Starting conversion: /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101-002_R1C1.TIF.
+2020-11-07 16:00:02 Conversion complete: True.
+2020-11-07 16:00:02 Starting conversion: /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101-002_R1C1.TIF.
+2020-11-07 16:00:11 Conversion complete: True.
+2020-11-07 16:00:11 Starting conversion: /tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101-002_R1C1.TIF.
+2020-11-07 16:00:20 Conversion complete: True.
+2020-11-07 16:33:09 Prepared Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712 at uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parse-core-(&amp;-limited-extension)-STAC-metadata">Parse core (&amp; limited extension) STAC metadata<a class="anchor-link" href="#Parse-core-(&amp;-limited-extension)-STAC-metadata"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With some cogs hosted on object storage we can fill out some of the necessary STAC core and extension metadata fields.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Collection-fields"><em>Collection</em> fields<a class="anchor-link" href="#Collection-fields"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since for Pleiades we're working with electro-optical imagery, we can make use of the STAC <strong><a href="https://github.com/radiantearth/stac-spec/tree/master/extensions/eo">EO Extension</a></strong>. At the Pleiades <em>Collection</em> level we can therefore manually set some default metadata fields that will be consistent across all <em>Items</em> and <em>Assets</em>.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We could also make use of the <strong><a href="https://github.com/radiantearth/stac-spec/blob/master/extensions/sat/README.md">Satellite Extension</a></strong>, however the fields of orbit_state (i.e. ascending / descending) and relative_orbit (i.e. orbit no.) don't seem immediately useful for Pleiades. Other extensions are commented on as we delve deeper into a <em>Collection</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Item-fields"><em>Item</em> fields<a class="anchor-link" href="#Item-fields"> </a></h3>
 </div>
 </div>
 </div>
@@ -371,10 +484,58 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wd</span> <span class="o">=</span> <span class="s2">&quot;/tmp/data/&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">obj_paths_list</span> <span class="o">=</span> <span class="n">s3_list_objects_paths</span><span class="p">(</span><span class="s1">&#39;public-eo-data&#39;</span><span class="p">,</span> <span class="s1">&#39;uksa-ssgp/pleiades/&#39;</span><span class="p">)</span>
+</pre></div>
 
-<span class="n">scene_res</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;products&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">scene_name</span> <span class="o">=</span> <span class="n">sedas_res</span><span class="p">[</span><span class="s1">&#39;supplierId&#39;</span><span class="p">]</span>
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scene_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">obj_paths_list</span> <span class="p">]))</span>
+<span class="n">scene_names</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scene_name</span> <span class="o">=</span> <span class="n">scene_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">scene_name</span>
 </pre></div>
 
@@ -390,7 +551,7 @@ nb_path: "01_pleiades.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712&#39;</pre>
+<pre>&#39;Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318&#39;</pre>
 </div>
 
 </div>
@@ -408,7 +569,8 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scene_res</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scene_obj_paths</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">obj_paths_list</span> <span class="k">if</span> <span class="n">scene_name</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+<span class="n">scene_obj_paths</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -423,34 +585,8 @@ nb_path: "01_pleiades.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;productId&#39;: &#39;c0ec9a5f12356e87bc910ddbc49dbb76&#39;,
- &#39;supplierId&#39;: &#39;Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712&#39;,
- &#39;type&#39;: &#39;ARCHIVE&#39;,
- &#39;satelliteName&#39;: &#39;Pleiades-1B&#39;,
- &#39;instrumentName&#39;: &#39;MS/PAN&#39;,
- &#39;modeName&#39;: &#39;0.000&#39;,
- &#39;sensorType&#39;: &#39;Optical&#39;,
- &#39;sensorResolution&#39;: 2.0,
- &#39;coordinatesWKT&#39;: &#39;POLYGON((-1.654728 51.309517,-1.345414 51.308197,-1.342538 51.509259,-1.653212 51.510588,-1.654728 51.309517))&#39;,
- &#39;start&#39;: &#39;2018-10-24T11:17:22Z&#39;,
- &#39;stop&#39;: &#39;2018-10-24T11:17:24Z&#39;,
- &#39;orbitDirection&#39;: &#39;DESCENDING&#39;,
- &#39;area&#39;: 482512528.74,
- &#39;aoiCoveragePercent&#39;: 1.0,
- &#39;usefulAreaPercent&#39;: 5.0,
- &#39;cloudCoveragePercent&#39;: 0.0,
- &#39;productType&#39;: &#39;L3&#39;,
- &#39;latency&#39;: &#39;Standard&#39;,
- &#39;ql&#39;: &#39;https://geobrowser.satapps.org/archiveql/aewebpub/getaeql.php?aeimgid=c0ec9a5f12356e87bc910ddbc49dbb76&amp;aeimgtype=ql&amp;epsg=3857&amp;&#39;,
- &#39;thumbnail&#39;: &#39;https://sedasdm.satapps.org/qls/qlmgr.php?sceneid=UKSA/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/c0ec9a5f12356e87bc910ddbc49dbb76/geo-quick-look-thumb.png&#39;,
- &#39;vendorSpecific&#39;: {&#39;property&#39;: &#39;vendorSpecific&#39;,
-  &#39;Filehash&#39;: &#39;cfa0e45b42c7d03850a0cbe9d3c5af6f&#39;,
-  &#39;Identifier&#39;: &#39;Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712&#39;,
-  &#39;FilesizeBytes&#39;: &#39;2608835665&#39;,
-  &#39;Supplier Product ID&#39;: &#39;DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712&#39;,
-  &#39;Processing Level&#39;: &#39;ORTHO&#39;,
-  &#39;Projected CRS Code&#39;: &#39;urn:ogc:def:crs:EPSG::27700&#39;},
- &#39;downloadUrl&#39;: &#39;https://sedasdm.satapps.org/datamgr/datamgr.php?p=SSGP&amp;sceneid=Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712.zip&#39;}</pre>
+<pre>[&#39;uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/DELIVERY.PDF&#39;,
+ &#39;uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/DIM_PHR1B_MS_201810241117221_ORT_3614233101-002.XML&#39;]</pre>
 </div>
 
 </div>
@@ -461,19 +597,6 @@ nb_path: "01_pleiades.ipynb"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Download-&amp;-Extract">Download &amp; Extract<a class="anchor-link" href="#Download-&amp;-Extract"> </a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>create zip path to download into from sedas result</p>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -481,8 +604,69 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">down_zip</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">wd</span><span class="si">}{</span><span class="n">scene_res</span><span class="p">[</span><span class="s1">&#39;supplierId&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.zip&quot;</span>
-<span class="n">down_zip</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pystac_setIO</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have a set of pleiades-specific tools for parsing stac metadata at the <em>Item</em> level. Some are more complex than others both in approach for generating and assumptions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We start off simple by getting the date from the scene name.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="pleiades_get_dt" class="doc_header"><code>pleiades_get_dt</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/pleiades.py#L57" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pleiades_get_dt</code>(<strong><code>scene_name</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pleiades_get_dt</span><span class="p">(</span><span class="n">scene_name</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -497,7 +681,7 @@ nb_path: "01_pleiades.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;/tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712.zip&#39;</pre>
+<pre>datetime.datetime(2018, 10, 24, 11, 17, 22)</pre>
 </div>
 
 </div>
@@ -510,7 +694,7 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>download the scene</p>
+<p>Geometry (footprint of actually useful data) can be taken from a .gml.</p>
 
 </div>
 </div>
@@ -518,14 +702,28 @@ nb_path: "01_pleiades.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sedas_download</span><span class="p">(</span><span class="n">scene_res</span><span class="p">,</span> <span class="n">down_zip</span><span class="p">)</span>
-</pre></div>
+</div>
+    {% endraw %}
 
-    </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="pleiades_get_geom" class="doc_header"><code>pleiades_get_geom</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/pleiades.py#L61" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pleiades_get_geom</code>(<strong><code>scene_paths</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -539,7 +737,7 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">down_zip</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pleiades_get_geom</span><span class="p">(</span><span class="n">scene_obj_paths</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -554,7 +752,206 @@ nb_path: "01_pleiades.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
+<pre>{&#39;type&#39;: &#39;Polygon&#39;,
+ &#39;coordinates&#39;: [[[-1.3449331341513882, 51.50927428517181],
+   [-1.3446521754929581, 51.50927271649961],
+   [-1.345195428911783, 51.44569144177794],
+   [-1.3452166817942117, 51.438165521284965],
+   [-1.3451720117786103, 51.4342448940449],
+   [-1.3452393864685703, 51.43204680030815],
+   [-1.345208895387082, 51.430153877208944],
+   [-1.345331876086818, 51.41802025018652],
+   [-1.3453083146522868, 51.40859229272767],
+   [-1.3453804005814718, 51.395482732004155],
+   [-1.3453225317899802, 51.3753588283898],
+   [-1.3453878649405344, 51.36724859762156],
+   [-1.3452925802124247, 51.34470558633005],
+   [-1.345334016899243, 51.320117602628706],
+   [-1.3452768314717642, 51.31758157542945],
+   [-1.3483977157362594, 51.317585484858],
+   [-1.3507808831345558, 51.31749980313956],
+   [-1.3543457949156628, 51.31755996471363],
+   [-1.3551268173685116, 51.31763170483238],
+   [-1.3563959284618738, 51.31768813800638],
+   [-1.3581321711576442, 51.31768867016099],
+   [-1.364849498834296, 51.3175499337138],
+   [-1.3655103152499606, 51.317495066783366],
+   [-1.3660914108380544, 51.31749821198432],
+   [-1.3666448005468605, 51.31742926962485],
+   [-1.367168812489072, 51.31740962124909],
+   [-1.3699525134396888, 51.317411134746784],
+   [-1.3744240652289204, 51.31727773572575],
+   [-1.3776526088486405, 51.31727694441925],
+   [-1.3792891306571864, 51.317222682095164],
+   [-1.3835283623528796, 51.317290021466846],
+   [-1.4015530947724366, 51.317109214139855],
+   [-1.4083851842383084, 51.31695507936021],
+   [-1.4116093549673543, 51.31673302962447],
+   [-1.4154113854327068, 51.31676554728997],
+   [-1.4182896268984693, 51.316662977331916],
+   [-1.4221786488985855, 51.316623772368715],
+   [-1.424928691811159, 51.31644397636266],
+   [-1.4273329114900386, 51.31637932020905],
+   [-1.429469906160712, 51.31645718342314],
+   [-1.4333867142133596, 51.31648967635786],
+   [-1.436659358351379, 51.31639755335634],
+   [-1.4404835081986067, 51.316379908333985],
+   [-1.441589059330217, 51.31632223912348],
+   [-1.447853906006998, 51.31618557740203],
+   [-1.4595754322194807, 51.315687224432494],
+   [-1.4647617689737522, 51.31574249989003],
+   [-1.4715356659424375, 51.31562038341503],
+   [-1.4726698059012648, 51.315567045743535],
+   [-1.4732938283752939, 51.31557884407552],
+   [-1.4741124187590726, 51.31551508185901],
+   [-1.4828463863126737, 51.31525272608962],
+   [-1.4861469960629423, 51.31520879900942],
+   [-1.4946015098886234, 51.3149038778361],
+   [-1.496316190256858, 51.31489777272022],
+   [-1.500227072104037, 51.31480661535598],
+   [-1.5034208547835186, 51.31468531539361],
+   [-1.5061113018674603, 51.31466970995916],
+   [-1.5114725316653075, 51.31446289119513],
+   [-1.5177938601708458, 51.31436768351584],
+   [-1.522753092643973, 51.31417667727754],
+   [-1.5267429157039332, 51.31407146837752],
+   [-1.5281786198287854, 51.31398284351195],
+   [-1.5301154647130288, 51.31399512151239],
+   [-1.5349659143364698, 51.313911063812235],
+   [-1.5381303583425594, 51.31383815609567],
+   [-1.54174063328673, 51.313659005350104],
+   [-1.5479683208953934, 51.313584282598136],
+   [-1.5500207694660102, 51.31351125507191],
+   [-1.5520520409453613, 51.31340214339446],
+   [-1.5527342321076147, 51.313332814500356],
+   [-1.5583384064281574, 51.31318772050503],
+   [-1.5633815596870118, 51.313193130326745],
+   [-1.5677022522900035, 51.3129753609472],
+   [-1.5693307745916043, 51.31296786912574],
+   [-1.574432460089423, 51.31284713291426],
+   [-1.5779630365810557, 51.31272951905581],
+   [-1.5788889967056026, 51.31266990727301],
+   [-1.5833449709489502, 51.312550956825284],
+   [-1.5883113663036372, 51.31230774573179],
+   [-1.5938363653178427, 51.31216517117397],
+   [-1.5972952660851019, 51.312028742626026],
+   [-1.6067975801969363, 51.31151250820052],
+   [-1.6142526247697404, 51.31130799154921],
+   [-1.6172379276717017, 51.31117391033122],
+   [-1.6216088420899084, 51.31090036594056],
+   [-1.624420986342574, 51.31088243587079],
+   [-1.6288268279964815, 51.310716635652994],
+   [-1.6311088590136966, 51.310606947031836],
+   [-1.63557342502854, 51.31026573785492],
+   [-1.6426838019240253, 51.310062835484466],
+   [-1.6450739897996935, 51.309872278338055],
+   [-1.6525011049597302, 51.309507886473924],
+   [-1.6528038098699556, 51.3559152468498],
+   [-1.6528978995760792, 51.36342360872344],
+   [-1.6528340488008324, 51.36997387731754],
+   [-1.6529304415212185, 51.37337752035855],
+   [-1.652969734791556, 51.37768465715964],
+   [-1.6529507428284846, 51.382099518483514],
+   [-1.6530293473256543, 51.38500855946107],
+   [-1.6530629782044024, 51.399575158328496],
+   [-1.6531522518123283, 51.40297876280007],
+   [-1.653111979408286, 51.40640446128559],
+   [-1.6531798017002446, 51.40789277881721],
+   [-1.6531148357597398, 51.42028755242829],
+   [-1.6531696536075535, 51.42349772310056],
+   [-1.6532639532030045, 51.4252918294076],
+   [-1.6532945588599868, 51.42885259849376],
+   [-1.6532243539964666, 51.43528138860933],
+   [-1.6533052273539521, 51.43790267844906],
+   [-1.6532539212692898, 51.43993013139375],
+   [-1.6533009766222961, 51.4422680841396],
+   [-1.6531369604755612, 51.46108246985694],
+   [-1.653166103531558, 51.46768685339015],
+   [-1.6532587150307447, 51.46971472128114],
+   [-1.6532223403838326, 51.471665779207534],
+   [-1.653258848470436, 51.474448769318315],
+   [-1.6531648177712204, 51.47735725389756],
+   [-1.6532740046523613, 51.48005054072996],
+   [-1.6531883857378242, 51.485647513286764],
+   [-1.6531986365235956, 51.4899949431504],
+   [-1.6532811009193322, 51.493367004266524],
+   [-1.6532664182980943, 51.50195384735368],
+   [-1.6511472559620377, 51.50213189459823],
+   [-1.6472058492313257, 51.50227746677381],
+   [-1.6400588355781867, 51.50242660835513],
+   [-1.6305762627915659, 51.502770296312455],
+   [-1.6296182154364434, 51.502767277333234],
+   [-1.62494763554498, 51.5030941245238],
+   [-1.6234202164758345, 51.50312520037314],
+   [-1.6199247678095545, 51.50332973063631],
+   [-1.6167396784090042, 51.50345874273376],
+   [-1.6160626285944706, 51.50344753868258],
+   [-1.611688641669669, 51.503608484984554],
+   [-1.6105071943790499, 51.50361356219849],
+   [-1.6085471936994187, 51.503683470004866],
+   [-1.6039776519575106, 51.503960366086446],
+   [-1.5984719867601416, 51.50418892816604],
+   [-1.5916484525315713, 51.504363201234405],
+   [-1.590301342570571, 51.50436300276175],
+   [-1.5884422524507118, 51.50441943960972],
+   [-1.587649979473441, 51.50440317175963],
+   [-1.5844937071093406, 51.50451342666154],
+   [-1.5782900020249595, 51.50464415771334],
+   [-1.5756304501890463, 51.504787428025935],
+   [-1.5743481615859958, 51.504787280699574],
+   [-1.5666384051935802, 51.5049568819684],
+   [-1.5634892939335205, 51.50506210247871],
+   [-1.5617097732078364, 51.50507794978951],
+   [-1.5587984946967266, 51.50517044497722],
+   [-1.5545388882597906, 51.50538363964102],
+   [-1.5438739136305857, 51.50569334767313],
+   [-1.5403288128057753, 51.505764936662366],
+   [-1.5393349213642544, 51.505738561181666],
+   [-1.5373677523118925, 51.50578477293046],
+   [-1.5361360017309478, 51.505770919828755],
+   [-1.531681967202675, 51.5059600373069],
+   [-1.5279354480674994, 51.50599897760938],
+   [-1.5245342371951451, 51.50608415524195],
+   [-1.5233086556770232, 51.50616909920313],
+   [-1.5146174917330433, 51.50645267738836],
+   [-1.5111867364232754, 51.50660028658121],
+   [-1.5082826647267225, 51.50667357523545],
+   [-1.5050332364926633, 51.50670487417509],
+   [-1.5010766968726192, 51.50683648189945],
+   [-1.4995772560887042, 51.50692450926666],
+   [-1.4881132586812513, 51.50710884902304],
+   [-1.4787684136187162, 51.507189104960254],
+   [-1.4755961659399308, 51.50739526623734],
+   [-1.4722742160418585, 51.50746129988964],
+   [-1.4711577083068363, 51.50744728263716],
+   [-1.4676044895666942, 51.50757508249692],
+   [-1.464448524045922, 51.50761467278489],
+   [-1.4605128804477054, 51.5077899656366],
+   [-1.4567657408890813, 51.5078625964352],
+   [-1.4557925595883918, 51.50791203706752],
+   [-1.4509797508889777, 51.507934578977725],
+   [-1.4471331445688957, 51.50788954666717],
+   [-1.4409295832682552, 51.507936586777056],
+   [-1.4372399820682993, 51.50801336375307],
+   [-1.42820438622654, 51.508113553250965],
+   [-1.4245792489903313, 51.508217220770746],
+   [-1.42213476004675, 51.508389536545295],
+   [-1.4206219133423617, 51.50838207761855],
+   [-1.4192524051747974, 51.50843375368226],
+   [-1.4138708208714983, 51.50842048671322],
+   [-1.4116367626901138, 51.50847224856664],
+   [-1.4084521742023244, 51.50848771004712],
+   [-1.4060514797689923, 51.508610457947476],
+   [-1.3999330056894967, 51.508750172114716],
+   [-1.3930084764803234, 51.508822459920275],
+   [-1.3881381717150114, 51.50882414312016],
+   [-1.3795198715914216, 51.50894523675206],
+   [-1.3777118966341602, 51.50891768049936],
+   [-1.3669677366609456, 51.50907151789137],
+   [-1.3633304361386067, 51.50899789158125],
+   [-1.3589912671804618, 51.50914061438523],
+   [-1.3459927114553565, 51.5092397329256],
+   [-1.3449331341513882, 51.50927428517181]]]}</pre>
 </div>
 
 </div>
@@ -567,7 +964,7 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>create a scene directory path to extract into</p>
+<p>A variety of <em>Item</em> metadata already exists within either the multi-spectral and / or the panchromatic image metadata supplied with the original dataset.</p>
 
 </div>
 </div>
@@ -575,12 +972,97 @@ nb_path: "01_pleiades.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="pleiades_parsemeta" class="doc_header"><code>pleiades_parsemeta</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/pleiades.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pleiades_parsemeta</code>(<strong><code>meta_path</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scene_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">down_zip</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">/&quot;</span>
-<span class="n">scene_dir</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">pleiades_parsemeta</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">scene_obj_paths</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;-002.XML&#39;</span><span class="p">)][</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># not sure if this catches for all Items?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bounding box is one..</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="pleiades_get_bbox" class="doc_header"><code>pleiades_get_bbox</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/pleiades.py#L71" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pleiades_get_bbox</code>(<strong><code>metadata</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pleiades_get_bbox</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -595,7 +1077,7 @@ nb_path: "01_pleiades.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;/tmp/data/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712/&#39;</pre>
+<pre>[-1.654267391010452, 51.3089303018909, -1.343017308021802, 51.51106070120541]</pre>
 </div>
 
 </div>
@@ -608,7 +1090,7 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>extract</p>
+<p>That's it to meet the <strong>core specification</strong> of STAC.</p>
 
 </div>
 </div>
@@ -620,7 +1102,28 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sedas_extract</span><span class="p">(</span><span class="n">down_zip</span><span class="p">,</span> <span class="n">scene_dir</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">item_id</span><span class="p">,</span>
+                  <span class="n">datetime</span><span class="o">=</span><span class="n">pleiades_get_dt</span><span class="p">(</span><span class="n">scene_name</span><span class="p">),</span>
+                  <span class="n">geometry</span><span class="o">=</span><span class="n">pleiades_get_geom</span><span class="p">(</span><span class="n">scene_obj_paths</span><span class="p">),</span>
+                  <span class="n">bbox</span><span class="o">=</span><span class="n">pleiades_get_bbox</span><span class="p">(</span><span class="n">meta</span><span class="p">),</span>
+                  <span class="n">properties</span><span class="o">=</span><span class="p">{})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span><span class="c1">#, item.to_dict()</span>
 </pre></div>
 
     </div>
@@ -632,10 +1135,1322 @@ nb_path: "01_pleiades.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Mosaic-&amp;-COG">Mosaic &amp; COG<a class="anchor-link" href="#Mosaic-&amp;-COG"> </a></h2>
+<p>We can now focus on adding useful extensions.</p>
+
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pleiades_get_gsd</span><span class="p">(</span><span class="n">metadata</span><span class="p">):</span>
+    <span class="n">across</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Dimap_Document&#39;</span><span class="p">][</span><span class="s1">&#39;Geometric_Data&#39;</span><span class="p">][</span><span class="s1">&#39;Use_Area&#39;</span><span class="p">][</span><span class="s1">&#39;Located_Geometric_Values&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Ground_Sample_Distance&#39;</span><span class="p">][</span><span class="s1">&#39;GSD_ACROSS_TRACK&#39;</span><span class="p">][</span><span class="s1">&#39;#text&#39;</span><span class="p">])</span>
+    <span class="n">along</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Dimap_Document&#39;</span><span class="p">][</span><span class="s1">&#39;Geometric_Data&#39;</span><span class="p">][</span><span class="s1">&#39;Use_Area&#39;</span><span class="p">][</span><span class="s1">&#39;Located_Geometric_Values&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Ground_Sample_Distance&#39;</span><span class="p">][</span><span class="s1">&#39;GSD_ALONG_TRACK&#39;</span><span class="p">][</span><span class="s1">&#39;#text&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">((</span> <span class="n">across</span> <span class="o">+</span> <span class="n">along</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pleiades_get_gsd</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.77</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">common_metadata</span><span class="o">.</span><span class="n">gsd</span> <span class="o">=</span> <span class="n">pleiades_get_gsd</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;eo&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pleiades_get_cloudcover</span><span class="p">(</span><span class="n">metadata</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Dimap_Document&#39;</span><span class="p">][</span><span class="s1">&#39;Dataset_Content&#39;</span><span class="p">][</span><span class="s1">&#39;CLOUD_COVERAGE&#39;</span><span class="p">][</span><span class="s1">&#39;#text&#39;</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pleiades_get_cloudcover</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">eo</span><span class="o">.</span><span class="n">cloud_cover</span> <span class="o">=</span> <span class="n">pleiades_get_cloudcover</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;projection&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pleiades_get_crs</span><span class="p">(</span><span class="n">metadata</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;Dimap_Document&#39;</span><span class="p">][</span><span class="s1">&#39;Coordinate_Reference_System&#39;</span><span class="p">][</span><span class="s1">&#39;Projected_CRS&#39;</span><span class="p">][</span><span class="s1">&#39;PROJECTED_CRS_NAME&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pleiades_get_crs</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>27700</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">projection</span><span class="o">.</span><span class="n">epsg</span> <span class="o">=</span> <span class="n">pleiades_get_crs</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Adding-Assets">Adding <em>Assets</em><a class="anchor-link" href="#Adding-Assets"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bfs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Panchromatic&#39;</span><span class="p">:{</span><span class="s1">&#39;ends&#39;</span><span class="p">:</span><span class="s1">&#39;_band1&#39;</span><span class="p">,</span> <span class="s1">&#39;dif&#39;</span><span class="p">:</span><span class="s1">&#39;_P_&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;B0&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;Blue&#39;</span><span class="p">:{</span><span class="s1">&#39;ends&#39;</span><span class="p">:</span><span class="s1">&#39;_band1&#39;</span><span class="p">,</span> <span class="s1">&#39;dif&#39;</span><span class="p">:</span><span class="s1">&#39;_MS_&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;B1&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;Green&#39;</span><span class="p">:{</span><span class="s1">&#39;ends&#39;</span><span class="p">:</span><span class="s1">&#39;_band2&#39;</span><span class="p">,</span> <span class="s1">&#39;dif&#39;</span><span class="p">:</span><span class="s1">&#39;_MS_&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;B2&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;Red&#39;</span><span class="p">:{</span><span class="s1">&#39;ends&#39;</span><span class="p">:</span><span class="s1">&#39;_band3&#39;</span><span class="p">,</span> <span class="s1">&#39;dif&#39;</span><span class="p">:</span><span class="s1">&#39;_MS_&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;B3&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;Near-Infrared&#39;</span><span class="p">:{</span><span class="s1">&#39;ends&#39;</span><span class="p">:</span><span class="s1">&#39;_band4&#39;</span><span class="p">,</span> <span class="s1">&#39;dif&#39;</span><span class="p">:</span><span class="s1">&#39;_MS_&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;B4&#39;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">bfs</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;Panchromatic&#39;: {&#39;ends&#39;: &#39;_band1&#39;, &#39;dif&#39;: &#39;_P_&#39;, &#39;id&#39;: &#39;B0&#39;},
+ &#39;Blue&#39;: {&#39;ends&#39;: &#39;_band1&#39;, &#39;dif&#39;: &#39;_MS_&#39;, &#39;id&#39;: &#39;B1&#39;},
+ &#39;Green&#39;: {&#39;ends&#39;: &#39;_band2&#39;, &#39;dif&#39;: &#39;_MS_&#39;, &#39;id&#39;: &#39;B2&#39;},
+ &#39;Red&#39;: {&#39;ends&#39;: &#39;_band3&#39;, &#39;dif&#39;: &#39;_MS_&#39;, &#39;id&#39;: &#39;B3&#39;},
+ &#39;Near-Infrared&#39;: {&#39;ends&#39;: &#39;_band4&#39;, &#39;dif&#39;: &#39;_MS_&#39;, &#39;id&#39;: &#39;B4&#39;}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">pleiades_bands</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">band</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    
+    <span class="n">matched_paths</span> <span class="o">=</span> <span class="p">[</span> <span class="n">o</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">scene_obj_paths</span> <span class="k">if</span> <span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bfs</span><span class="p">[</span><span class="n">band</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;ends&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.tif&quot;</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bfs</span><span class="p">[</span><span class="n">band</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;dif&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">o</span><span class="p">)</span> <span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matched_paths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found too many matches: </span><span class="si">{</span><span class="n">matched_paths</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">band_url</span> <span class="o">=</span> <span class="n">create_uri</span><span class="p">(</span><span class="n">matched_paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">band_url</span><span class="p">)</span>
+    
+    <span class="n">asset</span> <span class="o">=</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Asset</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="n">band_url</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="n">pystac</span><span class="o">.</span><span class="n">MediaType</span><span class="o">.</span><span class="n">COG</span><span class="p">)</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">eo</span><span class="o">.</span><span class="n">set_bands</span><span class="p">([</span><span class="n">band</span><span class="p">],</span> <span class="n">asset</span><span class="p">)</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">add_asset</span><span class="p">(</span><span class="n">bfs</span><span class="p">[</span><span class="n">band</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">asset</span><span class="p">)</span>    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Panchromatic
+http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_P_001/IMG_PHR1B_P_201810241117221_ORT_3614233101_band1.tif
+Blue
+http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band1.tif
+Green
+http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band2.tif
+Red
+http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band3.tif
+Near-Infrared
+http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band4.tif
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;type&#39;: &#39;Feature&#39;,
+ &#39;stac_version&#39;: &#39;1.0.0-beta.2&#39;,
+ &#39;id&#39;: &#39;Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318&#39;,
+ &#39;properties&#39;: {&#39;datetime&#39;: &#39;2018-10-24T11:17:22Z&#39;,
+  &#39;gsd&#39;: 0.77,
+  &#39;eo:cloud_cover&#39;: 0.0,
+  &#39;proj:epsg&#39;: 27700},
+ &#39;geometry&#39;: {&#39;type&#39;: &#39;Polygon&#39;,
+  &#39;coordinates&#39;: [[[-1.3449331341513882, 51.50927428517181],
+    [-1.3446521754929581, 51.50927271649961],
+    [-1.345195428911783, 51.44569144177794],
+    [-1.3452166817942117, 51.438165521284965],
+    [-1.3451720117786103, 51.4342448940449],
+    [-1.3452393864685703, 51.43204680030815],
+    [-1.345208895387082, 51.430153877208944],
+    [-1.345331876086818, 51.41802025018652],
+    [-1.3453083146522868, 51.40859229272767],
+    [-1.3453804005814718, 51.395482732004155],
+    [-1.3453225317899802, 51.3753588283898],
+    [-1.3453878649405344, 51.36724859762156],
+    [-1.3452925802124247, 51.34470558633005],
+    [-1.345334016899243, 51.320117602628706],
+    [-1.3452768314717642, 51.31758157542945],
+    [-1.3483977157362594, 51.317585484858],
+    [-1.3507808831345558, 51.31749980313956],
+    [-1.3543457949156628, 51.31755996471363],
+    [-1.3551268173685116, 51.31763170483238],
+    [-1.3563959284618738, 51.31768813800638],
+    [-1.3581321711576442, 51.31768867016099],
+    [-1.364849498834296, 51.3175499337138],
+    [-1.3655103152499606, 51.317495066783366],
+    [-1.3660914108380544, 51.31749821198432],
+    [-1.3666448005468605, 51.31742926962485],
+    [-1.367168812489072, 51.31740962124909],
+    [-1.3699525134396888, 51.317411134746784],
+    [-1.3744240652289204, 51.31727773572575],
+    [-1.3776526088486405, 51.31727694441925],
+    [-1.3792891306571864, 51.317222682095164],
+    [-1.3835283623528796, 51.317290021466846],
+    [-1.4015530947724366, 51.317109214139855],
+    [-1.4083851842383084, 51.31695507936021],
+    [-1.4116093549673543, 51.31673302962447],
+    [-1.4154113854327068, 51.31676554728997],
+    [-1.4182896268984693, 51.316662977331916],
+    [-1.4221786488985855, 51.316623772368715],
+    [-1.424928691811159, 51.31644397636266],
+    [-1.4273329114900386, 51.31637932020905],
+    [-1.429469906160712, 51.31645718342314],
+    [-1.4333867142133596, 51.31648967635786],
+    [-1.436659358351379, 51.31639755335634],
+    [-1.4404835081986067, 51.316379908333985],
+    [-1.441589059330217, 51.31632223912348],
+    [-1.447853906006998, 51.31618557740203],
+    [-1.4595754322194807, 51.315687224432494],
+    [-1.4647617689737522, 51.31574249989003],
+    [-1.4715356659424375, 51.31562038341503],
+    [-1.4726698059012648, 51.315567045743535],
+    [-1.4732938283752939, 51.31557884407552],
+    [-1.4741124187590726, 51.31551508185901],
+    [-1.4828463863126737, 51.31525272608962],
+    [-1.4861469960629423, 51.31520879900942],
+    [-1.4946015098886234, 51.3149038778361],
+    [-1.496316190256858, 51.31489777272022],
+    [-1.500227072104037, 51.31480661535598],
+    [-1.5034208547835186, 51.31468531539361],
+    [-1.5061113018674603, 51.31466970995916],
+    [-1.5114725316653075, 51.31446289119513],
+    [-1.5177938601708458, 51.31436768351584],
+    [-1.522753092643973, 51.31417667727754],
+    [-1.5267429157039332, 51.31407146837752],
+    [-1.5281786198287854, 51.31398284351195],
+    [-1.5301154647130288, 51.31399512151239],
+    [-1.5349659143364698, 51.313911063812235],
+    [-1.5381303583425594, 51.31383815609567],
+    [-1.54174063328673, 51.313659005350104],
+    [-1.5479683208953934, 51.313584282598136],
+    [-1.5500207694660102, 51.31351125507191],
+    [-1.5520520409453613, 51.31340214339446],
+    [-1.5527342321076147, 51.313332814500356],
+    [-1.5583384064281574, 51.31318772050503],
+    [-1.5633815596870118, 51.313193130326745],
+    [-1.5677022522900035, 51.3129753609472],
+    [-1.5693307745916043, 51.31296786912574],
+    [-1.574432460089423, 51.31284713291426],
+    [-1.5779630365810557, 51.31272951905581],
+    [-1.5788889967056026, 51.31266990727301],
+    [-1.5833449709489502, 51.312550956825284],
+    [-1.5883113663036372, 51.31230774573179],
+    [-1.5938363653178427, 51.31216517117397],
+    [-1.5972952660851019, 51.312028742626026],
+    [-1.6067975801969363, 51.31151250820052],
+    [-1.6142526247697404, 51.31130799154921],
+    [-1.6172379276717017, 51.31117391033122],
+    [-1.6216088420899084, 51.31090036594056],
+    [-1.624420986342574, 51.31088243587079],
+    [-1.6288268279964815, 51.310716635652994],
+    [-1.6311088590136966, 51.310606947031836],
+    [-1.63557342502854, 51.31026573785492],
+    [-1.6426838019240253, 51.310062835484466],
+    [-1.6450739897996935, 51.309872278338055],
+    [-1.6525011049597302, 51.309507886473924],
+    [-1.6528038098699556, 51.3559152468498],
+    [-1.6528978995760792, 51.36342360872344],
+    [-1.6528340488008324, 51.36997387731754],
+    [-1.6529304415212185, 51.37337752035855],
+    [-1.652969734791556, 51.37768465715964],
+    [-1.6529507428284846, 51.382099518483514],
+    [-1.6530293473256543, 51.38500855946107],
+    [-1.6530629782044024, 51.399575158328496],
+    [-1.6531522518123283, 51.40297876280007],
+    [-1.653111979408286, 51.40640446128559],
+    [-1.6531798017002446, 51.40789277881721],
+    [-1.6531148357597398, 51.42028755242829],
+    [-1.6531696536075535, 51.42349772310056],
+    [-1.6532639532030045, 51.4252918294076],
+    [-1.6532945588599868, 51.42885259849376],
+    [-1.6532243539964666, 51.43528138860933],
+    [-1.6533052273539521, 51.43790267844906],
+    [-1.6532539212692898, 51.43993013139375],
+    [-1.6533009766222961, 51.4422680841396],
+    [-1.6531369604755612, 51.46108246985694],
+    [-1.653166103531558, 51.46768685339015],
+    [-1.6532587150307447, 51.46971472128114],
+    [-1.6532223403838326, 51.471665779207534],
+    [-1.653258848470436, 51.474448769318315],
+    [-1.6531648177712204, 51.47735725389756],
+    [-1.6532740046523613, 51.48005054072996],
+    [-1.6531883857378242, 51.485647513286764],
+    [-1.6531986365235956, 51.4899949431504],
+    [-1.6532811009193322, 51.493367004266524],
+    [-1.6532664182980943, 51.50195384735368],
+    [-1.6511472559620377, 51.50213189459823],
+    [-1.6472058492313257, 51.50227746677381],
+    [-1.6400588355781867, 51.50242660835513],
+    [-1.6305762627915659, 51.502770296312455],
+    [-1.6296182154364434, 51.502767277333234],
+    [-1.62494763554498, 51.5030941245238],
+    [-1.6234202164758345, 51.50312520037314],
+    [-1.6199247678095545, 51.50332973063631],
+    [-1.6167396784090042, 51.50345874273376],
+    [-1.6160626285944706, 51.50344753868258],
+    [-1.611688641669669, 51.503608484984554],
+    [-1.6105071943790499, 51.50361356219849],
+    [-1.6085471936994187, 51.503683470004866],
+    [-1.6039776519575106, 51.503960366086446],
+    [-1.5984719867601416, 51.50418892816604],
+    [-1.5916484525315713, 51.504363201234405],
+    [-1.590301342570571, 51.50436300276175],
+    [-1.5884422524507118, 51.50441943960972],
+    [-1.587649979473441, 51.50440317175963],
+    [-1.5844937071093406, 51.50451342666154],
+    [-1.5782900020249595, 51.50464415771334],
+    [-1.5756304501890463, 51.504787428025935],
+    [-1.5743481615859958, 51.504787280699574],
+    [-1.5666384051935802, 51.5049568819684],
+    [-1.5634892939335205, 51.50506210247871],
+    [-1.5617097732078364, 51.50507794978951],
+    [-1.5587984946967266, 51.50517044497722],
+    [-1.5545388882597906, 51.50538363964102],
+    [-1.5438739136305857, 51.50569334767313],
+    [-1.5403288128057753, 51.505764936662366],
+    [-1.5393349213642544, 51.505738561181666],
+    [-1.5373677523118925, 51.50578477293046],
+    [-1.5361360017309478, 51.505770919828755],
+    [-1.531681967202675, 51.5059600373069],
+    [-1.5279354480674994, 51.50599897760938],
+    [-1.5245342371951451, 51.50608415524195],
+    [-1.5233086556770232, 51.50616909920313],
+    [-1.5146174917330433, 51.50645267738836],
+    [-1.5111867364232754, 51.50660028658121],
+    [-1.5082826647267225, 51.50667357523545],
+    [-1.5050332364926633, 51.50670487417509],
+    [-1.5010766968726192, 51.50683648189945],
+    [-1.4995772560887042, 51.50692450926666],
+    [-1.4881132586812513, 51.50710884902304],
+    [-1.4787684136187162, 51.507189104960254],
+    [-1.4755961659399308, 51.50739526623734],
+    [-1.4722742160418585, 51.50746129988964],
+    [-1.4711577083068363, 51.50744728263716],
+    [-1.4676044895666942, 51.50757508249692],
+    [-1.464448524045922, 51.50761467278489],
+    [-1.4605128804477054, 51.5077899656366],
+    [-1.4567657408890813, 51.5078625964352],
+    [-1.4557925595883918, 51.50791203706752],
+    [-1.4509797508889777, 51.507934578977725],
+    [-1.4471331445688957, 51.50788954666717],
+    [-1.4409295832682552, 51.507936586777056],
+    [-1.4372399820682993, 51.50801336375307],
+    [-1.42820438622654, 51.508113553250965],
+    [-1.4245792489903313, 51.508217220770746],
+    [-1.42213476004675, 51.508389536545295],
+    [-1.4206219133423617, 51.50838207761855],
+    [-1.4192524051747974, 51.50843375368226],
+    [-1.4138708208714983, 51.50842048671322],
+    [-1.4116367626901138, 51.50847224856664],
+    [-1.4084521742023244, 51.50848771004712],
+    [-1.4060514797689923, 51.508610457947476],
+    [-1.3999330056894967, 51.508750172114716],
+    [-1.3930084764803234, 51.508822459920275],
+    [-1.3881381717150114, 51.50882414312016],
+    [-1.3795198715914216, 51.50894523675206],
+    [-1.3777118966341602, 51.50891768049936],
+    [-1.3669677366609456, 51.50907151789137],
+    [-1.3633304361386067, 51.50899789158125],
+    [-1.3589912671804618, 51.50914061438523],
+    [-1.3459927114553565, 51.5092397329256],
+    [-1.3449331341513882, 51.50927428517181]]]},
+ &#39;links&#39;: [],
+ &#39;assets&#39;: {&#39;B0&#39;: {&#39;href&#39;: &#39;http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_P_001/IMG_PHR1B_P_201810241117221_ORT_3614233101_band1.tif&#39;,
+   &#39;type&#39;: &#39;image/tiff; application=geotiff; profile=cloud-optimized&#39;,
+   &#39;eo:bands&#39;: [{&#39;name&#39;: &#39;Panchromatic&#39;,
+     &#39;common_name&#39;: &#39;pan&#39;,
+     &#39;description&#39;: &#39;Panchromatic: 480 - 830 nm&#39;}]},
+  &#39;B1&#39;: {&#39;href&#39;: &#39;http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band1.tif&#39;,
+   &#39;type&#39;: &#39;image/tiff; application=geotiff; profile=cloud-optimized&#39;,
+   &#39;eo:bands&#39;: [{&#39;name&#39;: &#39;Blue&#39;,
+     &#39;common_name&#39;: &#39;blue&#39;,
+     &#39;description&#39;: &#39;Blue: 430 - 550 nm&#39;}]},
+  &#39;B2&#39;: {&#39;href&#39;: &#39;http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band2.tif&#39;,
+   &#39;type&#39;: &#39;image/tiff; application=geotiff; profile=cloud-optimized&#39;,
+   &#39;eo:bands&#39;: [{&#39;name&#39;: &#39;Green&#39;,
+     &#39;common_name&#39;: &#39;green&#39;,
+     &#39;description&#39;: &#39;Green: 490 - 610 nm&#39;}]},
+  &#39;B3&#39;: {&#39;href&#39;: &#39;http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band3.tif&#39;,
+   &#39;type&#39;: &#39;image/tiff; application=geotiff; profile=cloud-optimized&#39;,
+   &#39;eo:bands&#39;: [{&#39;name&#39;: &#39;Red&#39;,
+     &#39;common_name&#39;: &#39;red&#39;,
+     &#39;description&#39;: &#39;Red: 600 - 720 nm&#39;}]},
+  &#39;B4&#39;: {&#39;href&#39;: &#39;http://s3-uk-1.sa-catapult.co.uk/public-eo-data/uksa-ssgp/pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/IMG_PHR1B_MS_002/IMG_PHR1B_MS_201810241117221_ORT_3614233101_band4.tif&#39;,
+   &#39;type&#39;: &#39;image/tiff; application=geotiff; profile=cloud-optimized&#39;,
+   &#39;eo:bands&#39;: [{&#39;name&#39;: &#39;Near-Infrared&#39;,
+     &#39;common_name&#39;: &#39;nir&#39;,
+     &#39;description&#39;: &#39;Near-Infrared: 750 - 950 nm&#39;}]}},
+ &#39;bbox&#39;: [-1.654267391010452,
+  51.3089303018909,
+  -1.343017308021802,
+  51.51106070120541],
+ &#39;stac_extensions&#39;: [&#39;eo&#39;, &#39;projection&#39;]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Building-the-Collection">Building the <em>Collection</em><a class="anchor-link" href="#Building-the-Collection"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection_id</span> <span class="o">=</span> <span class="s1">&#39;uksa-ssgp-pleiades&#39;</span>
+<span class="n">collection_id</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;uksa-ssgp-pleiades&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection_title</span> <span class="o">=</span> <span class="s1">&#39;SSGP-procured Pleiades images over the UK&#39;</span>
+<span class="n">collection_title</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;SSGP-procured Pleiades images over the UK&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection_description</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;### UKSA / SSGP Pleiades</span>
+
+<span class="s1">A collection of Pleiades images over the UK. Procured by UKSA under its Space for Smarter Government Programme (SSGP).</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">collection_description</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>### UKSA / SSGP Pleiades
+
+A collection of Pleiades images over the UK. Procured by UKSA under its Space for Smarter Government Programme (SSGP).
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spatial_extent</span> <span class="o">=</span> <span class="n">pystac</span><span class="o">.</span><span class="n">SpatialExtent</span><span class="p">([[</span><span class="o">-</span><span class="mf">7.57216793459</span><span class="p">,</span> <span class="mf">49.959999905</span><span class="p">,</span> <span class="mf">1.68153079591</span><span class="p">,</span> <span class="mf">58.6350001085</span><span class="p">]])</span>
+<span class="n">temporal_extent</span> <span class="o">=</span> <span class="n">pystac</span><span class="o">.</span><span class="n">TemporalExtent</span><span class="p">([[</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="kc">None</span><span class="p">]])</span>
+<span class="n">collection_extent</span> <span class="o">=</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Extent</span><span class="p">(</span><span class="n">spatial_extent</span><span class="p">,</span> <span class="n">temporal_extent</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Collection</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">collection_id</span><span class="p">,</span>
+                     <span class="n">title</span><span class="o">=</span><span class="n">collection_title</span><span class="p">,</span>
+                     <span class="n">description</span><span class="o">=</span><span class="n">collection_description</span><span class="p">,</span>
+                     <span class="n">extent</span><span class="o">=</span><span class="n">collection_extent</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;id&#39;: &#39;uksa-ssgp-pleiades&#39;,
+ &#39;stac_version&#39;: &#39;1.0.0-beta.2&#39;,
+ &#39;description&#39;: &#39;### UKSA / SSGP Pleiades\n\nA collection of Pleiades images over the UK. Procured by UKSA under its Space for Smarter Government Programme (SSGP).\n&#39;,
+ &#39;links&#39;: [{&#39;rel&#39;: &#39;root&#39;, &#39;href&#39;: None, &#39;type&#39;: &#39;application/json&#39;}],
+ &#39;title&#39;: &#39;SSGP-procured Pleiades images over the UK&#39;,
+ &#39;extent&#39;: {&#39;spatial&#39;: {&#39;bbox&#39;: [[-7.57216793459,
+     49.959999905,
+     1.68153079591,
+     58.6350001085]]},
+  &#39;temporal&#39;: {&#39;interval&#39;: [[&#39;2011-12-16T00:00:00Z&#39;, None]]}},
+ &#39;license&#39;: &#39;proprietary&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">providers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">pystac</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Airbus Defence &amp; Space&#39;</span><span class="p">,</span> <span class="n">roles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;producer&#39;</span><span class="p">],</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://www.airbus.com/space.html&#39;</span><span class="p">),</span>
+    <span class="n">pystac</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;UK Space Agency&#39;</span><span class="p">,</span> <span class="n">roles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;licensor&#39;</span><span class="p">],</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://www.gov.uk/government/organisations/uk-space-agency&#39;</span><span class="p">),</span>
+    <span class="n">pystac</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Satellite Applications Catapult&#39;</span><span class="p">,</span> <span class="n">roles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;processor&#39;</span><span class="p">],</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://sa.catapult.org.uk/&#39;</span><span class="p">),</span>
+    <span class="n">pystac</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Satellite Applications Catapult&#39;</span><span class="p">,</span> <span class="n">roles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://sa.catapult.org.uk/&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;id&#39;: &#39;uksa-ssgp-pleiades&#39;,
+ &#39;stac_version&#39;: &#39;1.0.0-beta.2&#39;,
+ &#39;description&#39;: &#39;### UKSA / SSGP Pleiades\n\nA collection of Pleiades images over the UK. Procured by UKSA under its Space for Smarter Government Programme (SSGP).\n&#39;,
+ &#39;links&#39;: [{&#39;rel&#39;: &#39;root&#39;,
+   &#39;href&#39;: &#39;/root/uksa-ssgp-pleiades/collection.json&#39;,
+   &#39;type&#39;: &#39;application/json&#39;},
+  {&#39;rel&#39;: &#39;item&#39;,
+   &#39;href&#39;: &#39;/root/uksa-ssgp-pleiades/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318.json&#39;,
+   &#39;type&#39;: &#39;application/json&#39;},
+  {&#39;rel&#39;: &#39;self&#39;,
+   &#39;href&#39;: &#39;/root/uksa-ssgp-pleiades/collection.json&#39;,
+   &#39;type&#39;: &#39;application/json&#39;}],
+ &#39;title&#39;: &#39;SSGP-procured Pleiades images over the UK&#39;,
+ &#39;extent&#39;: {&#39;spatial&#39;: {&#39;bbox&#39;: [[-1.654267391010452,
+     51.3089303018909,
+     -1.343017308021802,
+     51.51106070120541]]},
+  &#39;temporal&#39;: {&#39;interval&#39;: [[&#39;2018-10-24T11:17:22Z&#39;,
+     &#39;2018-10-24T11:17:22Z&#39;]]}},
+ &#39;license&#39;: &#39;proprietary&#39;,
+ &#39;providers&#39;: [{&#39;name&#39;: &#39;Airbus Defence &amp; Space&#39;,
+   &#39;roles&#39;: [&#39;producer&#39;],
+   &#39;url&#39;: &#39;https://www.airbus.com/space.html&#39;},
+  {&#39;name&#39;: &#39;UK Space Agency&#39;,
+   &#39;roles&#39;: [&#39;licensor&#39;],
+   &#39;url&#39;: &#39;https://www.gov.uk/government/organisations/uk-space-agency&#39;},
+  {&#39;name&#39;: &#39;Satellite Applications Catapult&#39;,
+   &#39;roles&#39;: [&#39;processor&#39;],
+   &#39;url&#39;: &#39;https://sa.catapult.org.uk/&#39;},
+  {&#39;name&#39;: &#39;Satellite Applications Catapult&#39;,
+   &#39;roles&#39;: [&#39;host&#39;],
+   &#39;url&#39;: &#39;https://sa.catapult.org.uk/&#39;}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">update_extent_from_items</span><span class="p">()</span>
+<span class="n">collection</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;spatial&#39;: {&#39;bbox&#39;: [[-1.654267391010452,
+    51.3089303018909,
+    -1.343017308021802,
+    51.51106070120541]]},
+ &#39;temporal&#39;: {&#39;interval&#39;: [[&#39;2018-10-24T11:17:22Z&#39;, &#39;2018-10-24T11:17:22Z&#39;]]}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;id&#39;: &#39;uksa-ssgp-pleiades&#39;,
+ &#39;stac_version&#39;: &#39;1.0.0-beta.2&#39;,
+ &#39;description&#39;: &#39;### UKSA / SSGP Pleiades\n\nA collection of Pleiades images over the UK. Procured by UKSA under its Space for Smarter Government Programme (SSGP).\n&#39;,
+ &#39;links&#39;: [{&#39;rel&#39;: &#39;root&#39;, &#39;href&#39;: None, &#39;type&#39;: &#39;application/json&#39;},
+  {&#39;rel&#39;: &#39;item&#39;, &#39;href&#39;: None, &#39;type&#39;: &#39;application/json&#39;}],
+ &#39;title&#39;: &#39;SSGP-procured Pleiades images over the UK&#39;,
+ &#39;extent&#39;: {&#39;spatial&#39;: {&#39;bbox&#39;: [[-1.654267391010452,
+     51.3089303018909,
+     -1.343017308021802,
+     51.51106070120541]]},
+  &#39;temporal&#39;: {&#39;interval&#39;: [[&#39;2018-10-24T11:17:22Z&#39;,
+     &#39;2018-10-24T11:17:22Z&#39;]]}},
+ &#39;license&#39;: &#39;proprietary&#39;,
+ &#39;providers&#39;: [{&#39;name&#39;: &#39;Airbus Defence &amp; Space&#39;,
+   &#39;roles&#39;: [&#39;producer&#39;],
+   &#39;url&#39;: &#39;https://www.airbus.com/space.html&#39;},
+  {&#39;name&#39;: &#39;UK Space Agency&#39;,
+   &#39;roles&#39;: [&#39;procurer&#39;],
+   &#39;url&#39;: &#39;https://www.gov.uk/government/organisations/uk-space-agency&#39;},
+  {&#39;name&#39;: &#39;Satellite Applications Catapult&#39;,
+   &#39;roles&#39;: [&#39;processor&#39;],
+   &#39;url&#39;: &#39;https://sa.catapult.org.uk/&#39;},
+  {&#39;name&#39;: &#39;Satellite Applications Catapult&#39;,
+   &#39;roles&#39;: [&#39;host&#39;],
+   &#39;url&#39;: &#39;https://sa.catapult.org.uk/&#39;}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="n">collection</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root_path</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;/root/uksa-ssgp-pleiades&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">normalize_hrefs</span><span class="p">(</span><span class="n">root_path</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Collection id=uksa-ssgp-pleiades&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">validate_all</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">pystac</span><span class="o">.</span><span class="n">CatalogType</span><span class="o">.</span><span class="n">SELF_CONTAINED</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>* &lt;Collection id=uksa-ssgp-pleiades&gt;
+  * &lt;Item id=Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">collection</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;id&#39;: &#39;uksa-ssgp-pleiades&#39;,
+ &#39;stac_version&#39;: &#39;1.0.0-beta.2&#39;,
+ &#39;description&#39;: &#39;### UKSA / SSGP Pleiades\n\nA collection of Pleiades images over the UK. Procured by UKSA under its Space for Smarter Government Programme (SSGP).\n&#39;,
+ &#39;links&#39;: [{&#39;rel&#39;: &#39;root&#39;,
+   &#39;href&#39;: &#39;./collection.json&#39;,
+   &#39;type&#39;: &#39;application/json&#39;},
+  {&#39;rel&#39;: &#39;item&#39;,
+   &#39;href&#39;: &#39;./Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318/Pleiades_UKSA396_SO18034616-96-01_DS_PHR1B_201810241117221_FR1_PX_W002N51_0710_01712TPP1601069318.json&#39;,
+   &#39;type&#39;: &#39;application/json&#39;},
+  {&#39;rel&#39;: &#39;self&#39;,
+   &#39;href&#39;: &#39;/root/uksa-ssgp-pleiades/collection.json&#39;,
+   &#39;type&#39;: &#39;application/json&#39;}],
+ &#39;title&#39;: &#39;SSGP-procured Pleiades images over the UK&#39;,
+ &#39;extent&#39;: {&#39;spatial&#39;: {&#39;bbox&#39;: [[-1.654267391010452,
+     51.3089303018909,
+     -1.343017308021802,
+     51.51106070120541]]},
+  &#39;temporal&#39;: {&#39;interval&#39;: [[&#39;2018-10-24T11:17:22Z&#39;,
+     &#39;2018-10-24T11:17:22Z&#39;]]}},
+ &#39;license&#39;: &#39;proprietary&#39;,
+ &#39;providers&#39;: [{&#39;name&#39;: &#39;Airbus Defence &amp; Space&#39;,
+   &#39;roles&#39;: [&#39;producer&#39;],
+   &#39;url&#39;: &#39;https://www.airbus.com/space.html&#39;},
+  {&#39;name&#39;: &#39;UK Space Agency&#39;,
+   &#39;roles&#39;: [&#39;licensor&#39;],
+   &#39;url&#39;: &#39;https://www.gov.uk/government/organisations/uk-space-agency&#39;},
+  {&#39;name&#39;: &#39;Satellite Applications Catapult&#39;,
+   &#39;roles&#39;: [&#39;processor&#39;],
+   &#39;url&#39;: &#39;https://sa.catapult.org.uk/&#39;},
+  {&#39;name&#39;: &#39;Satellite Applications Catapult&#39;,
+   &#39;roles&#39;: [&#39;host&#39;],
+   &#39;url&#39;: &#39;https://sa.catapult.org.uk/&#39;}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">http.server</span> <span class="kn">import</span> <span class="n">HTTPServer</span><span class="p">,</span> <span class="n">SimpleHTTPRequestHandler</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">root_path</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">CORSRequestHandler</span><span class="p">(</span><span class="n">SimpleHTTPRequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s1">&#39;Access-Control-Allow-Methods&#39;</span><span class="p">,</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s1">&#39;Cache-Control&#39;</span><span class="p">,</span> <span class="s1">&#39;no-store, no-cache, must-revalidate&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">CORSRequestHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">end_headers</span><span class="p">()</span>
+
+
+<span class="k">with</span> <span class="n">HTTPServer</span><span class="p">((</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">5555</span><span class="p">),</span> <span class="n">CORSRequestHandler</span><span class="p">)</span> <span class="k">as</span> <span class="n">httpd</span><span class="p">:</span>
+    <span class="n">httpd</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-10-3e032debc920&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> http<span class="ansi-blue-fg">.</span>server <span class="ansi-green-fg">import</span> HTTPServer<span class="ansi-blue-fg">,</span> SimpleHTTPRequestHandler
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>root_path<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-green-fg">class</span> CORSRequestHandler<span class="ansi-blue-fg">(</span>SimpleHTTPRequestHandler<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;root_path&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Export">Export<a class="anchor-link" href="#Export"> </a></h2>
@@ -662,7 +2477,8 @@ nb_path: "01_pleiades.ipynb"
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Converted 00_core.ipynb.
+<pre>Converted 00_utils.ipynb.
+Converted 01_pleiades.ipynb.
 Converted index.ipynb.
 </pre>
 </div>

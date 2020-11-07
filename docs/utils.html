@@ -2,7 +2,6 @@
 
 title: Basic Utils
 
-
 keywords: fastai
 sidebar: home_sidebar
 
@@ -53,44 +52,6 @@ nb_path: "00_utils.ipynb"
 </div>
     {% endraw %}
 
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pystac</span>
-<span class="kn">import</span> <span class="nn">rasterio</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-6a231452e75a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> pystac
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> rasterio
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;rasterio&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Sedas">Sedas<a class="anchor-link" href="#Sedas"> </a></h2>
@@ -108,6 +69,13 @@ nb_path: "00_utils.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -115,7 +83,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="sedas_client" class="doc_header"><code>sedas_client</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_client</code>()</p>
+<h4 id="sedas_client" class="doc_header"><code>sedas_client</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L24" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_client</code>()</p>
 </blockquote>
 <p>Log into sedas api.</p>
 
@@ -125,13 +93,6 @@ nb_path: "00_utils.ipynb"
 
 </div>
 </div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -158,7 +119,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;sedas_pyapi.sedas_api.SeDASAPI at 0x7f3953c3b510&gt;</pre>
+<pre>&lt;sedas_pyapi.sedas_api.SeDASAPI at 0x7f870f13b450&gt;</pre>
 </div>
 
 </div>
@@ -187,6 +148,13 @@ nb_path: "00_utils.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -194,7 +162,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="sedas_get_collections" class="doc_header"><code>sedas_get_collections</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_get_collections</code>()</p>
+<h4 id="sedas_get_collections" class="doc_header"><code>sedas_get_collections</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L31" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_get_collections</code>()</p>
 </blockquote>
 
 </div>
@@ -210,18 +178,11 @@ nb_path: "00_utils.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_sedas_collections</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sedas_get_collections</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -251,6 +212,13 @@ nb_path: "00_utils.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -258,7 +226,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="sedas_find_datasets" class="doc_header"><code>sedas_find_datasets</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L32" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_find_datasets</code>(<strong><code>wkt</code></strong>, <strong><code>startDate</code></strong>, <strong><code>endDate</code></strong>, <strong><code>collection</code></strong>)</p>
+<h4 id="sedas_find_datasets" class="doc_header"><code>sedas_find_datasets</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_find_datasets</code>(<strong><code>wkt</code></strong>, <strong><code>startDate</code></strong>, <strong><code>endDate</code></strong>, <strong><code>collection</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -267,13 +235,6 @@ nb_path: "00_utils.ipynb"
 
 </div>
 </div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -569,22 +530,18 @@ nb_path: "00_utils.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<div class="output_wrapper">
-<div class="output">
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># def sedas_download(sedas_res_dict, down_zip, sedas=None):</span>
+<span class="c1">#     &quot;Use product dict to download product zip.&quot;</span>
+<span class="c1">#     if not sedas:</span>
+<span class="c1">#         sedas = sedas_client()</span>
+<span class="c1">#     sedas.download(sedas_res_dict, down_zip)</span>
+</pre></div>
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="sedas_download" class="doc_header"><code>sedas_download</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L43" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_download</code>(<strong><code>sedas_res_dict</code></strong>, <strong><code>down_zip</code></strong>, <strong><code>sedas</code></strong>=<em><code>None</code></em>)</p>
-</blockquote>
-<p>Use product dict to download product zip.</p>
-
-</div>
-
-</div>
-
+    </div>
 </div>
 </div>
 
@@ -594,6 +551,31 @@ nb_path: "00_utils.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="sedas_download" class="doc_header"><code>sedas_download</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L51" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_download</code>(<strong><code>sedas_res_dicts</code></strong>, <strong><code>down_dir</code></strong>, <strong><code>sedas</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+<p>Use product dicts list to download into a dir.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}
@@ -619,6 +601,13 @@ nb_path: "00_utils.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -626,7 +615,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="sedas_extract" class="doc_header"><code>sedas_extract</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L50" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_extract</code>(<strong><code>down_zip</code></strong>, <strong><code>scene_dir</code></strong>)</p>
+<h4 id="sedas_extract" class="doc_header"><code>sedas_extract</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L64" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sedas_extract</code>(<strong><code>down_zip</code></strong>, <strong><code>scene_dir</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -635,13 +624,6 @@ nb_path: "00_utils.ipynb"
 
 </div>
 </div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -680,6 +662,13 @@ nb_path: "00_utils.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -687,7 +676,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="convert2cog" class="doc_header"><code>convert2cog</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L57" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert2cog</code>(<strong><code>img_path</code></strong>, <strong><code>cog_path</code></strong>, <strong><code>band</code></strong>)</p>
+<h4 id="convert2cog" class="doc_header"><code>convert2cog</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert2cog</code>(<strong><code>img_path</code></strong>, <strong><code>cog_path</code></strong>, <strong><code>band</code></strong>)</p>
 </blockquote>
 <p>Convert gdal raster into COG with default settings.
 Considering lzw compression.
@@ -721,7 +710,7 @@ See <a href="https://www.cogeo.org/developers-guide.html">https://www.cogeo.org/
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="mosaic2cog" class="doc_header"><code>mosaic2cog</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L74" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mosaic2cog</code>(<strong><code>imgs</code></strong>, <strong><code>out_cog</code></strong>, <strong><code>band</code></strong>)</p>
+<h4 id="mosaic2cog" class="doc_header"><code>mosaic2cog</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mosaic2cog</code>(<strong><code>imgs</code></strong>, <strong><code>out_cog</code></strong>, <strong><code>band</code></strong>)</p>
 </blockquote>
 <p>Mosaic imgs into cog.
 Usual vrt assumptions.</p>
@@ -736,13 +725,6 @@ Usual vrt assumptions.</p>
 </div>
     {% endraw %}
 
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>mosaic currently specific to pleiades ([:-13] for slicing name). Needs to be generalised a little more</p>
@@ -750,12 +732,13 @@ Usual vrt assumptions.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Object-Storage">Object Storage<a class="anchor-link" href="#Object-Storage"> </a></h2>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 </div>
-</div>
-</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -767,11 +750,10 @@ Usual vrt assumptions.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_create_client" class="doc_header"><code>s3_create_client</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L95" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_create_client</code>(<strong><code>s3_bucket</code></strong>)</p>
+<h4 id="cogmosaicbands" class="doc_header"><code>cogmosaicbands</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>cogmosaicbands</code>(<strong><code>img_paths</code></strong>, <strong><code>numbands</code></strong>, <strong><code>basename</code></strong>)</p>
 </blockquote>
-<p>Create and set up a connection to S3
-:param s3_bucket:
-:return: the s3 client object.</p>
+<p>Convert bands from img_paths to cog, output
+basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 </div>
 
@@ -783,9 +765,42 @@ Usual vrt assumptions.</p>
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Object-Storage">Object Storage<a class="anchor-link" href="#Object-Storage"> </a></h2>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="s3_create_client" class="doc_header"><code>s3_create_client</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_create_client</code>(<strong><code>s3_bucket</code></strong>)</p>
+</blockquote>
+<p>Create and set up a connection to S3
+:param s3_bucket:
+:return: the s3 client object.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}
@@ -808,6 +823,13 @@ Usual vrt assumptions.</p>
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
@@ -815,7 +837,7 @@ Usual vrt assumptions.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_single_upload" class="doc_header"><code>s3_single_upload</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L136" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_single_upload</code>(<strong><code>in_path</code></strong>, <strong><code>s3_path</code></strong>, <strong><code>s3_bucket</code></strong>)</p>
+<h4 id="s3_single_upload" class="doc_header"><code>s3_single_upload</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_single_upload</code>(<strong><code>in_path</code></strong>, <strong><code>s3_path</code></strong>, <strong><code>s3_bucket</code></strong>)</p>
 </blockquote>
 <p>put a file into S3 from the local file system.
 :param in_path: a path to a file on the local file system
@@ -850,7 +872,7 @@ Usual vrt assumptions.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_rel_dir_s3_paths" class="doc_header"><code>get_rel_dir_s3_paths</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L156" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_rel_dir_s3_paths</code>(<strong><code>local_dir</code></strong>, <strong><code>s3_dir</code></strong>)</p>
+<h4 id="get_rel_dir_s3_paths" class="doc_header"><code>get_rel_dir_s3_paths</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_rel_dir_s3_paths</code>(<strong><code>local_dir</code></strong>, <strong><code>s3_dir</code></strong>)</p>
 </blockquote>
 <p>returns local path, remote path pair list.</p>
 
@@ -882,8 +904,9 @@ Usual vrt assumptions.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_upload_dir" class="doc_header"><code>s3_upload_dir</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L168" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_upload_dir</code>(<strong><code>in_dir</code></strong>, <strong><code>s3_bucket</code></strong>, <strong><code>s3_dir</code></strong>)</p>
+<h4 id="s3_upload_dir" class="doc_header"><code>s3_upload_dir</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_upload_dir</code>(<strong><code>in_dir</code></strong>, <strong><code>s3_bucket</code></strong>, <strong><code>s3_dir</code></strong>)</p>
 </blockquote>
+<p>Upload all items in directory, inc. dir.</p>
 
 </div>
 
@@ -913,7 +936,7 @@ Usual vrt assumptions.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_list_objects_paths" class="doc_header"><code>s3_list_objects_paths</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L179" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects_paths</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
+<h4 id="s3_list_objects_paths" class="doc_header"><code>s3_list_objects_paths</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects_paths</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
 </blockquote>
 <p>List of paths only returned, not full object responses</p>
 
@@ -945,7 +968,7 @@ Usual vrt assumptions.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_list_objects" class="doc_header"><code>s3_list_objects</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L187" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
+<h4 id="s3_list_objects" class="doc_header"><code>s3_list_objects</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -958,9 +981,39 @@ Usual vrt assumptions.</p>
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="General">General<a class="anchor-link" href="#General"> </a></h2>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="clean_up" class="doc_header"><code>clean_up</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>clean_up</code>(<strong><code>work_dir</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}
@@ -971,6 +1024,159 @@ Usual vrt assumptions.</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can amend the default STAC I/O tools to work with our object storage.</p>
+<p>First up is to be able to create a uri given an endpoint, bucket name and object path.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="create_uri" class="doc_header"><code>create_uri</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_uri</code>(<strong><code>s3_path</code></strong>, <strong><code>s3_bucket</code></strong>=<em><code>'public-eo-data'</code></em>, <strong><code>endpoint_url</code></strong>=<em><code>'http://s3-uk-1.sa-catapult.co.uk'</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Amend the reading method.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="my_read_method" class="doc_header"><code>my_read_method</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>my_read_method</code>(<strong><code>uri</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And the writing method.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="my_write_method" class="doc_header"><code>my_write_method</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>my_write_method</code>(<strong><code>uri</code></strong>, <strong><code>txt</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then allow us to overwrite the defaults.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="pystac_setIO" class="doc_header"><code>pystac_setIO</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pystac_setIO</code>()</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Export">Export<a class="anchor-link" href="#Export"> </a></h2>
