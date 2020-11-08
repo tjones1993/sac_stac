@@ -119,7 +119,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;sedas_pyapi.sedas_api.SeDASAPI at 0x7f870f13b450&gt;</pre>
+<pre>&lt;sedas_pyapi.sedas_api.SeDASAPI at 0x7f159831b450&gt;</pre>
 </div>
 
 </div>
@@ -258,7 +258,7 @@ nb_path: "00_utils.ipynb"
                              <span class="s2">&quot;2020-10-27T00:00:00Z&quot;</span><span class="p">,</span>
                              <span class="s2">&quot;Pleiades&quot;</span>
                             <span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;products&#39;</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;products&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -362,153 +362,9 @@ nb_path: "00_utils.ipynb"
       <td>{'property': 'vendorSpecific', 'Filehash': '4b...</td>
       <td>https://sedasdm.satapps.org/datamgr/datamgr.ph...</td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>6ac7da92a92161839c0bf29ab1b878d3</td>
-      <td>Pleiades_UKSA173_SO18034614-73-01_DS_PHR1A_201...</td>
-      <td>ARCHIVE</td>
-      <td>Pleiades-1A</td>
-      <td>MS/PAN</td>
-      <td>0.000</td>
-      <td>Optical</td>
-      <td>2.0</td>
-      <td>POLYGON((-1.903588 51.628784,-1.592515 51.6281...</td>
-      <td>2018-09-29T11:10:00Z</td>
-      <td>...</td>
-      <td>1.796598e+08</td>
-      <td>10.0</td>
-      <td>100.0</td>
-      <td>0.0</td>
-      <td>L3</td>
-      <td>Standard</td>
-      <td>https://geobrowser.satapps.org/archiveql/aeweb...</td>
-      <td>https://sedasdm.satapps.org/qls/qlmgr.php?scen...</td>
-      <td>{'property': 'vendorSpecific', 'Filehash': 'e6...</td>
-      <td>https://sedasdm.satapps.org/datamgr/datamgr.ph...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>dd08a178209ed51cc57f5caef1e1ad7c</td>
-      <td>Pleiades_UKSA341_SO18034616-41-01_DS_PHR1B_201...</td>
-      <td>ARCHIVE</td>
-      <td>Pleiades-1B</td>
-      <td>MS/PAN</td>
-      <td>0.000</td>
-      <td>Optical</td>
-      <td>2.0</td>
-      <td>POLYGON((-1.401923 51.155725,-1.101068 51.1538...</td>
-      <td>2018-09-02T11:17:34Z</td>
-      <td>...</td>
-      <td>8.211908e+08</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>L3</td>
-      <td>Standard</td>
-      <td>https://geobrowser.satapps.org/archiveql/aeweb...</td>
-      <td>https://sedasdm.satapps.org/qls/qlmgr.php?scen...</td>
-      <td>{'property': 'vendorSpecific', 'Filehash': 'a5...</td>
-      <td>https://sedasdm.satapps.org/datamgr/datamgr.ph...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>97528406bc14d1c94ef22d20b4b26c7a</td>
-      <td>Pleiades_UKSA305_SO18034616-5-01_DS_PHR1B_2018...</td>
-      <td>ARCHIVE</td>
-      <td>Pleiades-1B</td>
-      <td>MS/PAN</td>
-      <td>0.000</td>
-      <td>Optical</td>
-      <td>2.0</td>
-      <td>POLYGON((-1.576165 51.728406,-1.265721 51.7268...</td>
-      <td>2018-07-24T11:24:30Z</td>
-      <td>...</td>
-      <td>4.256422e+08</td>
-      <td>11.0</td>
-      <td>46.0</td>
-      <td>1.0</td>
-      <td>L3</td>
-      <td>Standard</td>
-      <td>https://geobrowser.satapps.org/archiveql/aeweb...</td>
-      <td>https://sedasdm.satapps.org/qls/qlmgr.php?scen...</td>
-      <td>{'property': 'vendorSpecific', 'Filehash': '77...</td>
-      <td>https://sedasdm.satapps.org/datamgr/datamgr.ph...</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>3e8d4c9096b3ba5c7126499e442424f5</td>
-      <td>Pleiades_UKSA87_SO18034613-87-01_DS_PHR1A_2018...</td>
-      <td>ARCHIVE</td>
-      <td>Pleiades-1A</td>
-      <td>MS/PAN</td>
-      <td>0.000</td>
-      <td>Optical</td>
-      <td>2.0</td>
-      <td>POLYGON((-1.413484 51.469752,-1.089638 51.4676...</td>
-      <td>2018-06-29T11:18:17Z</td>
-      <td>...</td>
-      <td>9.264473e+08</td>
-      <td>34.0</td>
-      <td>67.0</td>
-      <td>0.0</td>
-      <td>L3</td>
-      <td>Standard</td>
-      <td>https://geobrowser.satapps.org/archiveql/aeweb...</td>
-      <td>https://sedasdm.satapps.org/qls/qlmgr.php?scen...</td>
-      <td>{'property': 'vendorSpecific', 'Filehash': '7f...</td>
-      <td>https://sedasdm.satapps.org/datamgr/datamgr.ph...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>b5ff24c70eba28f3ec7292c356fb27b0</td>
-      <td>Pleiades_UKSA204_SO18034615-4-01_DS_PHR1B_2018...</td>
-      <td>ARCHIVE</td>
-      <td>Pleiades-1B</td>
-      <td>MS/PAN</td>
-      <td>0.000</td>
-      <td>Optical</td>
-      <td>2.0</td>
-      <td>POLYGON((-1.928964 51.516819,-1.63821 51.51628...</td>
-      <td>2018-02-25T11:21:25Z</td>
-      <td>...</td>
-      <td>2.385591e+08</td>
-      <td>12.0</td>
-      <td>94.0</td>
-      <td>0.0</td>
-      <td>L3</td>
-      <td>Standard</td>
-      <td>https://geobrowser.satapps.org/archiveql/aeweb...</td>
-      <td>https://sedasdm.satapps.org/qls/qlmgr.php?scen...</td>
-      <td>{'property': 'vendorSpecific', 'Filehash': '4b...</td>
-      <td>https://sedasdm.satapps.org/datamgr/datamgr.ph...</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>92fe8121944a5267861d31597afb016a</td>
-      <td>Pleiades_UKSA7_SO18034613-7-01_DS_PHR1A_201802...</td>
-      <td>ARCHIVE</td>
-      <td>Pleiades-1A</td>
-      <td>MS/PAN</td>
-      <td>0.000</td>
-      <td>Optical</td>
-      <td>2.0</td>
-      <td>POLYGON((-1.606218 51.306711,-1.294645 51.3052...</td>
-      <td>2018-02-24T11:27:55Z</td>
-      <td>...</td>
-      <td>6.639221e+08</td>
-      <td>11.0</td>
-      <td>29.0</td>
-      <td>0.0</td>
-      <td>L3</td>
-      <td>Standard</td>
-      <td>https://geobrowser.satapps.org/archiveql/aeweb...</td>
-      <td>https://sedasdm.satapps.org/qls/qlmgr.php?scen...</td>
-      <td>{'property': 'vendorSpecific', 'Filehash': 'ef...</td>
-      <td>https://sedasdm.satapps.org/datamgr/datamgr.ph...</td>
-    </tr>
   </tbody>
 </table>
-<p>8 rows × 22 columns</p>
+<p>2 rows × 22 columns</p>
 </div>
 </div>
 
@@ -527,27 +383,6 @@ nb_path: "00_utils.ipynb"
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># def sedas_download(sedas_res_dict, down_zip, sedas=None):</span>
-<span class="c1">#     &quot;Use product dict to download product zip.&quot;</span>
-<span class="c1">#     if not sedas:</span>
-<span class="c1">#         sedas = sedas_client()</span>
-<span class="c1">#     sedas.download(sedas_res_dict, down_zip)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -676,7 +511,7 @@ nb_path: "00_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="convert2cog" class="doc_header"><code>convert2cog</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert2cog</code>(<strong><code>img_path</code></strong>, <strong><code>cog_path</code></strong>, <strong><code>band</code></strong>)</p>
+<h4 id="convert2cog" class="doc_header"><code>convert2cog</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L73" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>convert2cog</code>(<strong><code>img_path</code></strong>, <strong><code>cog_path</code></strong>, <strong><code>band</code></strong>)</p>
 </blockquote>
 <p>Convert gdal raster into COG with default settings.
 Considering lzw compression.
@@ -710,7 +545,7 @@ See <a href="https://www.cogeo.org/developers-guide.html">https://www.cogeo.org/
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="mosaic2cog" class="doc_header"><code>mosaic2cog</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mosaic2cog</code>(<strong><code>imgs</code></strong>, <strong><code>out_cog</code></strong>, <strong><code>band</code></strong>)</p>
+<h4 id="mosaic2cog" class="doc_header"><code>mosaic2cog</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mosaic2cog</code>(<strong><code>imgs</code></strong>, <strong><code>out_cog</code></strong>, <strong><code>band</code></strong>)</p>
 </blockquote>
 <p>Mosaic imgs into cog.
 Usual vrt assumptions.</p>
@@ -750,7 +585,7 @@ Usual vrt assumptions.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="cogmosaicbands" class="doc_header"><code>cogmosaicbands</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>cogmosaicbands</code>(<strong><code>img_paths</code></strong>, <strong><code>numbands</code></strong>, <strong><code>basename</code></strong>)</p>
+<h4 id="cogmosaicbands" class="doc_header"><code>cogmosaicbands</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L109" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>cogmosaicbands</code>(<strong><code>img_paths</code></strong>, <strong><code>numbands</code></strong>, <strong><code>basename</code></strong>)</p>
 </blockquote>
 <p>Convert bands from img_paths to cog, output
 basename_band#.tif. Mosaic if &gt;1 img paths.</p>
@@ -789,7 +624,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_create_client" class="doc_header"><code>s3_create_client</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_create_client</code>(<strong><code>s3_bucket</code></strong>)</p>
+<h4 id="s3_create_client" class="doc_header"><code>s3_create_client</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L127" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_create_client</code>(<strong><code>s3_bucket</code></strong>)</p>
 </blockquote>
 <p>Create and set up a connection to S3
 :param s3_bucket:
@@ -837,7 +672,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_single_upload" class="doc_header"><code>s3_single_upload</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_single_upload</code>(<strong><code>in_path</code></strong>, <strong><code>s3_path</code></strong>, <strong><code>s3_bucket</code></strong>)</p>
+<h4 id="s3_single_upload" class="doc_header"><code>s3_single_upload</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L168" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_single_upload</code>(<strong><code>in_path</code></strong>, <strong><code>s3_path</code></strong>, <strong><code>s3_bucket</code></strong>)</p>
 </blockquote>
 <p>put a file into S3 from the local file system.
 :param in_path: a path to a file on the local file system
@@ -872,7 +707,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_rel_dir_s3_paths" class="doc_header"><code>get_rel_dir_s3_paths</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_rel_dir_s3_paths</code>(<strong><code>local_dir</code></strong>, <strong><code>s3_dir</code></strong>)</p>
+<h4 id="get_rel_dir_s3_paths" class="doc_header"><code>get_rel_dir_s3_paths</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L188" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_rel_dir_s3_paths</code>(<strong><code>local_dir</code></strong>, <strong><code>s3_dir</code></strong>)</p>
 </blockquote>
 <p>returns local path, remote path pair list.</p>
 
@@ -904,7 +739,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_upload_dir" class="doc_header"><code>s3_upload_dir</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_upload_dir</code>(<strong><code>in_dir</code></strong>, <strong><code>s3_bucket</code></strong>, <strong><code>s3_dir</code></strong>)</p>
+<h4 id="s3_upload_dir" class="doc_header"><code>s3_upload_dir</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L200" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_upload_dir</code>(<strong><code>in_dir</code></strong>, <strong><code>s3_bucket</code></strong>, <strong><code>s3_dir</code></strong>)</p>
 </blockquote>
 <p>Upload all items in directory, inc. dir.</p>
 
@@ -936,7 +771,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_list_objects_paths" class="doc_header"><code>s3_list_objects_paths</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects_paths</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
+<h4 id="s3_list_objects_paths" class="doc_header"><code>s3_list_objects_paths</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L211" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects_paths</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
 </blockquote>
 <p>List of paths only returned, not full object responses</p>
 
@@ -968,7 +803,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="s3_list_objects" class="doc_header"><code>s3_list_objects</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
+<h4 id="s3_list_objects" class="doc_header"><code>s3_list_objects</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L219" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>s3_list_objects</code>(<strong><code>s3_bucket</code></strong>, <strong><code>prefix</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -1005,7 +840,38 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="clean_up" class="doc_header"><code>clean_up</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>clean_up</code>(<strong><code>work_dir</code></strong>)</p>
+<h4 id="clean_up" class="doc_header"><code>clean_up</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L227" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>clean_up</code>(<strong><code>work_dir</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="setup_logging" class="doc_header"><code>setup_logging</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L234" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>setup_logging</code>()</p>
 </blockquote>
 
 </div>
@@ -1050,7 +916,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="create_uri" class="doc_header"><code>create_uri</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_uri</code>(<strong><code>s3_path</code></strong>, <strong><code>s3_bucket</code></strong>=<em><code>'public-eo-data'</code></em>, <strong><code>endpoint_url</code></strong>=<em><code>'http://s3-uk-1.sa-catapult.co.uk'</code></em>)</p>
+<h4 id="create_uri" class="doc_header"><code>create_uri</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L254" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_uri</code>(<strong><code>s3_path</code></strong>, <strong><code>s3_bucket</code></strong>=<em><code>'public-eo-data'</code></em>, <strong><code>endpoint_url</code></strong>=<em><code>'http://s3-uk-1.sa-catapult.co.uk'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -1088,7 +954,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="my_read_method" class="doc_header"><code>my_read_method</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>my_read_method</code>(<strong><code>uri</code></strong>)</p>
+<h4 id="my_read_method" class="doc_header"><code>my_read_method</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L258" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>my_read_method</code>(<strong><code>uri</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -1126,7 +992,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="my_write_method" class="doc_header"><code>my_write_method</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>my_write_method</code>(<strong><code>uri</code></strong>, <strong><code>txt</code></strong>)</p>
+<h4 id="my_write_method" class="doc_header"><code>my_write_method</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L270" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>my_write_method</code>(<strong><code>uri</code></strong>, <strong><code>txt</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -1164,7 +1030,7 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="pystac_setIO" class="doc_header"><code>pystac_setIO</code><a href="" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pystac_setIO</code>()</p>
+<h4 id="pystac_setIO" class="doc_header"><code>pystac_setIO</code><a href="https://github.com/tjones1993/sac_stac/tree/master/sac_stac/utils.py#L281" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>pystac_setIO</code>()</p>
 </blockquote>
 
 </div>
@@ -1203,8 +1069,10 @@ basename_band#.tif. Mosaic if &gt;1 img paths.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Converted 00_utils.ipynb.
-Converted 01_pleiades.ipynb.
+<pre>Converted 00_rediswq.ipynb.
+Converted 00_utils.ipynb.
+Converted 01A_pleiades.ipynb.
+Converted 01B_pleiades_prep_worker.ipynb.
 Converted index.ipynb.
 </pre>
 </div>

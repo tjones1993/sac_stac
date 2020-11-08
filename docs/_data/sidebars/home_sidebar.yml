@@ -10,11 +10,17 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
+      title: Redis Utils
+      url: /rediswq
+    - output: web,pdf
       title: Basic Utils
       url: /utils
     - output: web,pdf
       title: Pleiades Example
       url: /pleiades
+    - output: web,pdf
+      title: Pleiades Job
+      url: /pleiades_prep_worker
     output: web
     title: sac_stac
   output: web

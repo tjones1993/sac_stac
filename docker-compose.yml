@@ -2,6 +2,17 @@
 version: '3'
 
 services:
+
+  redis-master:
+    image: redis
+    container_name: redis-master
+    ports:
+      - "6379:6379"
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - C:/Users/Tom.Jones/Documents/Data/redisdata:/data
+      
   jupyter-worker:
     build:
       context: ./

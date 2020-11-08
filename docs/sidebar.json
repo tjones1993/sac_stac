@@ -1,7 +1,9 @@
 {
   "sac_stac": {
     "Overview": "/",
+    "Redis Utils": "/rediswq",
     "Basic Utils": "/utils",
-    "Pleiades Example": "/pleiades"
+    "Pleiades Example": "/pleiades",
+    "Pleiades Job": "/pleiades_prep_worker"
   }
 }

@@ -36,7 +36,8 @@ RUN echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 # RUN source ~/.bashrc
 
 RUN pip install --no-cache-dir \
-    nbconvert==5.6.1 \
+    redis  \
+	nbconvert==5.6.1 \
 	requests \
 	pystac[validation] \
 	shapely \
