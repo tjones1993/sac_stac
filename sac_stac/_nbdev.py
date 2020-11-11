@@ -32,8 +32,12 @@ index = {"RedisWQ": "00_rediswq.ipynb",
          "pleiades_get_bbox": "01A_pleiades.ipynb",
          "pleiades_get_gsd": "01A_pleiades.ipynb",
          "pleiades_get_cloudcover": "01A_pleiades.ipynb",
+         "pleiades_create_item": "01A_pleiades.ipynb",
          "pleiades_bands": "01A_pleiades.ipynb",
          "pleiades_band_refs": "01A_pleiades.ipynb",
+         "pleiades_find_band_path": "01A_pleiades.ipynb",
+         "pleiades_add_assets2item": "01A_pleiades.ipynb",
+         "pleiades_create_collection": "01A_pleiades.ipynb",
          "process_scene": "01B_pleiades_prep_worker.ipynb",
          "level": "01B_pleiades_prep_worker.ipynb",
          "host": "01B_pleiades_prep_worker.ipynb",
@@ -52,13 +56,16 @@ index = {"RedisWQ": "00_rediswq.ipynb",
          "spot_band_refs": "02A_spot.ipynb",
          "spot_find_band_path": "02A_spot.ipynb",
          "spot_add_assets2item": "02A_spot.ipynb",
-         "spot_create_collection": "02A_spot.ipynb"}
+         "spot_create_collection": "02A_spot.ipynb",
+         "ssgp_create_collection": "09_sac_stac_catalog.ipynb",
+         "sac_create_catalog": "09_sac_stac_catalog.ipynb"}
 
 modules = ["rediswq.py",
            "utils.py",
            "pleiades.py",
            "pleiades_prep_worker.py",
-           "spot.py"]
+           "spot.py",
+           "sac_stac_catalog.py"]
 
 doc_url = "https://tjones1993.github.io/sac_stac/"
 

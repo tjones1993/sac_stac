@@ -5,6 +5,7 @@
     "Basic Utils": "/utils",
     "Pleiades": "/pleiades",
     "Pleiades Job": "/pleiades_prep_worker",
-    "SPOT": "/spot"
+    "SPOT": "/spot",
+    "Catapult STAC Catalog": "/sac_stac_catalog"
   }
 }
