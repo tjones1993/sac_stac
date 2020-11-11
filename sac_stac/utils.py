@@ -12,6 +12,7 @@ import time
 from glob import glob
 from urllib.parse import urlparse
 import gc
+import shutil
 
 import boto3
 import gdal
@@ -193,7 +194,7 @@ def get_rel_dir_s3_paths(local_dir, s3_dir):
     for subdir, dirs, files in os.walk(local_dir):
         for file in files:
             full_path = os.path.join(subdir, file)
-            paths.append([ full_path, s3_dir + local_dir.split('/')[-2] + full_path[len(local_dir):] ])
+            paths.append([ full_path, s3_dir + local_dir.split('/')[-2] + '/' + full_path[len(local_dir):] ])
     return paths
 
 # Cell

@@ -19,7 +19,7 @@ import datetime
 from .rediswq import RedisWQ
 
 # Cell
-level = os.getenv("LOGLEVEL", "INFO").upper()
+level = os.getenv("LOGLEVEL", "ERROR").upper()
 logging.basicConfig(format="%(asctime)s %(levelname)-8s %(name)s %(message)s",
                     datefmt="%Y-%m-%d %H:%M:%S", level=level)
 

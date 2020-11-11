@@ -11,7 +11,7 @@ services:
     restart: always
     command: redis-server --appendonly yes
     volumes:
-      - C:/Users/Tom.Jones/Documents/Data/redisdata:/data
+      - D:/stacexp/redisdata:/data
       
   jupyter-worker:
     build:
@@ -28,5 +28,5 @@ services:
       - SEDAS_PWD=${SEDAS_PWD}
     volumes:
       - ./:/opt/notebooks
-      - C:/Users/Tom.Jones/Documents/Data:/tmp/data
+      - D:/stacexp/:/tmp/data
     restart: always

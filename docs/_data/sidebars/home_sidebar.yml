@@ -16,11 +16,14 @@ entries:
       title: Basic Utils
       url: /utils
     - output: web,pdf
-      title: Pleiades Example
+      title: Pleiades
       url: /pleiades
     - output: web,pdf
       title: Pleiades Job
       url: /pleiades_prep_worker
+    - output: web,pdf
+      title: SPOT
+      url: /spot
     output: web
     title: sac_stac
   output: web

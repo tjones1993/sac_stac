@@ -34,12 +34,19 @@ index = {"RedisWQ": "00_rediswq.ipynb",
          "level": "01B_pleiades_prep_worker.ipynb",
          "host": "01B_pleiades_prep_worker.ipynb",
          "q": "01B_pleiades_prep_worker.ipynb",
-         "logger": "01B_pleiades_prep_worker.ipynb"}
+         "logger": "01B_pleiades_prep_worker.ipynb",
+         "prep_spot": "02A_spot.ipynb",
+         "spot_bands": "02A_spot.ipynb",
+         "spot_get_dt": "02A_spot.ipynb",
+         "spot_parsemeta": "02A_spot.ipynb",
+         "spot_get_geom": "02A_spot.ipynb",
+         "spot_get_bbox": "02A_spot.ipynb"}
 
 modules = ["rediswq.py",
            "utils.py",
            "pleiades.py",
-           "pleiades_prep_worker.py"]
+           "pleiades_prep_worker.py",
+           "spot.py"]
 
 doc_url = "https://tjones1993.github.io/sac_stac/"
 

@@ -3,7 +3,8 @@
     "Overview": "/",
     "Redis Utils": "/rediswq",
     "Basic Utils": "/utils",
-    "Pleiades Example": "/pleiades",
-    "Pleiades Job": "/pleiades_prep_worker"
+    "Pleiades": "/pleiades",
+    "Pleiades Job": "/pleiades_prep_worker",
+    "SPOT": "/spot"
   }
 }
