@@ -3,7 +3,7 @@
 __all__ = ['sedas_client', 'sedas_get_collections', 'sedas_find_datasets', 'sedas_download', 'sedas_extract',
            'convert2cog', 'mosaic2cog', 'cogmosaicbands', 's3_create_client', 'gb', 's3_single_upload',
            'get_rel_dir_s3_paths', 's3_upload_dir', 's3_list_objects_paths', 's3_list_objects', 'clean_up',
-           'setup_logging', 'create_uri', 'my_read_method', 'my_write_method', 'pystac_setIO']
+           'setup_logging', 'get_img_crs_and_bbox', 'create_uri', 'my_read_method', 'my_write_method', 'pystac_setIO']
 
 # Cell
 import os
@@ -17,6 +17,8 @@ import shutil
 import boto3
 import gdal
 from pystac import STAC_IO
+import rasterio
+from shapely.geometry import Polygon
 
 from sedas_pyapi.sedas_api import SeDASAPI
 from sedas_pyapi.bulk_download import SeDASBulkDownload
@@ -252,6 +254,24 @@ def setup_logging():
     return root
 
 # Cell
+def get_img_crs_and_bbox(raster_uri):
+    """
+    BBOX list, geometry shapely and rasterio crs from
+    URI of COG.
+    nb: footprint currently same as bbo.
+    """
+    with rasterio.open(raster_uri) as ds:
+        bounds = ds.bounds
+        bbox = [bounds.left, bounds.bottom, bounds.right, bounds.top]
+        footprint = Polygon([
+            [bounds.left, bounds.bottom],
+            [bounds.left, bounds.top],
+            [bounds.right, bounds.top],
+            [bounds.right, bounds.bottom]
+        ])
+        return bbox, footprint, ds.crs
+
+# Cell
 def create_uri(s3_path, s3_bucket='public-eo-data', endpoint_url=os.getenv('AWS_S3_ENDPOINT_URL')):
     return f"{endpoint_url}/{s3_bucket}/{s3_path}"
 
@@ -270,12 +290,19 @@ def my_read_method(uri):
 # Cell
 def my_write_method(uri, txt):
     parsed = urlparse(uri)
-    if parsed.scheme == 's3':
-        bucket = parsed.netloc
-        key = parsed.path[1:]
-        s3 = boto3.resource("s3")
-        s3.Object(bucket, key).put(Body=txt)
+#     print(parsed)
+    if (parsed.scheme == 'https') and ('s3' in parsed.netloc):
+        endpoint_url = os.getenv("AWS_S3_ENDPOINT_URL")
+        s3_bucket = parsed.path.split('/')[1]
+
+        s3_client, bucket = s3_create_client(s3_bucket)
+
+        key = '/'.join(parsed.path.split('/')[2:])
+#         print(key)
+        s3_client.put_object(Body=txt, Bucket=s3_bucket, Key=key)
+
     else:
+        print('relaying to defaul')
         STAC_IO.default_write_text_method(uri, txt)
 
 # Cell

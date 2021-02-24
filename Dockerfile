@@ -55,7 +55,7 @@ RUN conda install --quiet --yes \
     && find /opt/conda/ -follow -type f -name '*.pyc' -delete \
     && find /opt/conda/ -follow -type f -name '*.js.map' -delete
 
-RUN conda install --quiet --yes -c conda-forge nodejs
+RUN conda install --quiet --yes -c conda-forge nodejs intake-stac
 
 RUN jupyter labextension install @jupyterlab/toc
 RUN jupyter labextension install @aquirdturtle/collapsible_headings
